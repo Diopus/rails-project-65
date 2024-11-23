@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  namespace :web do
-    get "home/index"
-  end
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get 'up' => 'rails/health#show', as: :rails_health_check
@@ -13,9 +10,6 @@ Rails.application.routes.draw do
   get 'manifest' => 'rails/pwa#manifest', as: :pwa_manifest
 
   root 'web/home#index'
-
   post 'auth/:provider', to: 'auth#request', as: :auth_request
   get 'auth/:provider/callback', to: 'auth#callback', as: :callback_auth
-  # Defines the root path route ("/")
-  # root "posts#index"
 end
