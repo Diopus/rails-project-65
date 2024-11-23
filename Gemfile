@@ -4,6 +4,9 @@ source 'https://rubygems.org'
 
 gem 'bootstrap'
 
+gem 'omniauth-github'
+gem 'omniauth-rails_csrf_protection'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.2.2'
 
