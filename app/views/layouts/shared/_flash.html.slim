@@ -1,0 +1,5 @@
+- if flash.any?
+  .container.my-2
+    - flash.each do |type, msg|
+      .alert class="#{bootstrap_flash_class(type)}"
+        = msg
