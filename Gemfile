@@ -12,6 +12,8 @@ gem 'rails', '~> 7.2.2'
 
 gem 'simple_form'
 
+gem 'slim-rails'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
@@ -59,6 +61,8 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem 'rubocop-rails-omakase', require: false
+
+  gem 'slim_lint'
 
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '>= 1.4'
