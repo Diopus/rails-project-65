@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'service-worker' => 'rails/pwa#service_worker', as: :pwa_service_worker
   get 'manifest' => 'rails/pwa#manifest', as: :pwa_manifest
 
+  post 'auth/:provider', to: 'auth#request', as: :auth_request
+  get 'auth/:provider/callback', to: 'auth#callback', as: :callback_auth
   # Defines the root path route ("/")
   # root "posts#index"
 end
