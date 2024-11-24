@@ -9,7 +9,7 @@ class Web::AuthControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'create' do
-    skip('reason for skipping the test')
+    # skip('reason for skipping the test')
     auth_hash = {
       provider: 'github',
       uid: '12345',
@@ -28,5 +28,15 @@ class Web::AuthControllerTest < ActionDispatch::IntegrationTest
 
     assert user
     assert signed_in?
+  end
+
+  test 'should route to request' do
+    assert_routing({ method: 'post', path: '/auth/github' },
+                   { controller: 'web/auth', action: 'request', provider: 'github' })
+  end
+
+  test 'should route to callback' do
+    assert_routing({ method: 'get', path: '/auth/github/callback' },
+                   { controller: 'web/auth', action: 'callback', provider: 'github' })
   end
 end
