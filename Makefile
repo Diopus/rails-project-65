@@ -17,3 +17,11 @@ ci-setup:
 	yarn install
 	bundle install --without production development
 	# RAILS_ENV=test bin/rails db:prepare
+
+setup-env:
+	@if [ -f .env ]; then \
+		echo ".env file already exists"; \
+	else \
+		cp .env.example .env; \
+		echo ".env file created. Please update the .env file with your credentials (e.g., ID and Secret)."; \
+	fi
