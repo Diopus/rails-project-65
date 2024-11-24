@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   get 'service-worker' => 'rails/pwa#service_worker', as: :pwa_service_worker
   get 'manifest' => 'rails/pwa#manifest', as: :pwa_manifest
 
-  root 'web/home#index'
-  post 'auth/:provider', to: 'auth#request', as: :auth_request
-  get 'auth/:provider/callback', to: 'auth#callback', as: :callback_auth
+  scope module: :web do
+    root 'home#index'
+    post 'auth/:provider', to: 'auth#request', as: :auth_request
+    get 'auth/:provider/callback', to: 'auth#callback', as: :callback_auth
+  end
 end
