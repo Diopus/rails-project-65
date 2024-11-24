@@ -107,6 +107,7 @@ GEM
     debug (1.9.2)
       irb (~> 1.10)
       reline (>= 0.3.8)
+    dotenv (2.8.1)
     drb (2.2.1)
     erubi (1.13.0)
     execjs (2.10.0)
@@ -381,6 +382,7 @@ DEPENDENCIES
   capybara
   cssbundling-rails
   debug
+  dotenv
   faker
   jbuilder
   jsbundling-rails
