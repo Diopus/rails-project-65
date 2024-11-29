@@ -1,15 +1,13 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  title: MyString
-  description: MyText
-  image: MyString
+  title: "Brand New Car"
+  description: "This is a great car for everyday use."
+  image: "car.png"
   category: one
   user: one
 
 two:
-  title: MyString
-  description: MyText
-  image: MyString
+  title: "Modern Coat"
+  description: "Spacious coat in a great color."
+  image: "coat.png"
   category: two
-  user: two
+  user: one
