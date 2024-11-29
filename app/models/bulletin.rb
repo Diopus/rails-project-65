@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Bulletin < ApplicationRecord
   MAX_TITLE_LENGTH = 50
   MAX_DESCRIPTION_LENGTH = 1000
