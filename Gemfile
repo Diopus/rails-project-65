@@ -2,6 +2,8 @@
 
 source 'https://rubygems.org'
 
+gem 'active_storage_validations'
+
 gem 'bootstrap'
 
 gem 'omniauth-github'
