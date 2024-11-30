@@ -88,3 +88,5 @@ end
 group :production do
   gem 'pg'
 end
+
+gem "pundit", "~> 2.4"
