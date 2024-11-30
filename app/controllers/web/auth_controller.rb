@@ -8,7 +8,7 @@ module Web
         u.name = auth_hash['info']['name']
       end
 
-      session[:user_id] = user.id
+      sign_in(user)
       redirect_to root_path
     end
   end
