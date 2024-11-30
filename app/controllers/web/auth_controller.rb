@@ -6,8 +6,17 @@ module Web
       auth_hash = request.env['omniauth.auth']
       user = find_or_create_user(auth_hash)
 
-      sign_in(user)
-      redirect_to root_path
+      if user.persisted?
+        sign_in(user)
+        redirect_to root_path, notice: 'Вы успешно вошли в систему.'
+      else
+        redirect_to root_path, alert: 'Не удалось войти в систему.'
+      end
+    end
+
+    def logout
+      sign_out
+      redirect_to root_path, notice: 'Вы успешно вышли из системы.'
     end
 
     private
