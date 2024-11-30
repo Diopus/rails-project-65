@@ -6,18 +6,18 @@
           .collapse.navbar-collapse id="navbarToggler"
             ul.nav.nav-pills.flex-grow-1.navbar-nav.me-auto
               li.nav-item.me-2
-                = link_to 'My bulletins', '/', class: 'nav-link text-dark'
+                = link_to ('layouts.nav.my_bulletins'), '/', class: 'nav-link text-dark'
               li.nav-item.me-2.d-flex.align-items-center
-                = link_to 'New bulletin', new_bulletin_path, class: 'btn btn-outline-success btn-sm'
+                = link_to ('layouts.nav.new_bulletin'), new_bulletin_path, class: 'btn btn-outline-success btn-sm'
 
       .ul.nav.nav-pills
         - if user_signed_in?
           li.nav-item.me-2
             = link_to current_user.email, '', class: 'nav-link disabled'
           li.nav-item.me-2
-            = link_to 'Administration', '/', class: 'nav-link text-dark'
+            = link_to ('layouts.nav.administration'), '/', class: 'nav-link text-dark'
           li.nav-item.me-2
             = button_to t('layouts.nav.log_out'), auth_logout_path, method: :delete, class: 'btn btn-outline-dark'
         - else
           li.nav-item.me-2
-            = button_to 'Sign in', auth_request_path(:github), data: { turbo: false }, class: 'btn btn-outline-dark'
+            = button_to ('layouts.nav.sign_in'), auth_request_path(:github), data: { turbo: false }, class: 'btn btn-outline-dark'

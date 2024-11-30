@@ -8,15 +8,15 @@ module Web
 
       if user.persisted?
         sign_in(user)
-        redirect_to root_path, notice: 'Вы успешно вошли в систему.'
+        redirect_to root_path, notice: I18n.t('auth.sign_in')
       else
-        redirect_to root_path, alert: 'Не удалось войти в систему.'
+        redirect_to root_path, alert: I18n.t('auth.error')
       end
     end
 
     def logout
       sign_out
-      redirect_to root_path, notice: 'Вы успешно вышли из системы.'
+      redirect_to root_path, notice: I18n.t('auth.sign_out')
     end
 
     private
