@@ -9,13 +9,15 @@ Rails.application.routes.draw do
   get 'service-worker' => 'rails/pwa#service_worker', as: :pwa_service_worker
   get 'manifest' => 'rails/pwa#manifest', as: :pwa_manifest
 
-  scope module: :web do
-    root 'bulletins#index'
+  scope '(:locale)', locale: /en|ru/ do
+    scope module: :web do
+      root 'bulletins#index'
 
-    post 'auth/:provider', to: 'auth#request', as: :auth_request
-    get 'auth/:provider/callback', to: 'auth#callback', as: :callback_auth
-    delete 'auth/logout', to: 'auth#logout'
+      post 'auth/:provider', to: 'auth#request', as: :auth_request
+      get 'auth/:provider/callback', to: 'auth#callback', as: :callback_auth
+      delete 'auth/logout', to: 'auth#logout'
 
-    resources :bulletins
+      resources :bulletins
+    end
   end
 end
