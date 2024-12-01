@@ -6,6 +6,8 @@ gem 'active_storage_validations'
 
 gem 'bootstrap'
 
+gem 'i18n-tasks'
+
 gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
 
