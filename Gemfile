@@ -9,6 +9,10 @@ gem 'bootstrap'
 gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
 
+gem 'pundit', '~> 2.4'
+
+gem 'rails-i18n'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.2.2'
 
@@ -88,5 +92,3 @@ end
 group :production do
   gem 'pg'
 end
-
-gem "pundit", "~> 2.4"
