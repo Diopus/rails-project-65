@@ -1,0 +1,11 @@
+h1 = t('.title')
+
+.row
+  - @categories.each do |category|
+    .col-md-12
+      .card.mb-3
+        .card-body
+          .h5.card-title
+            = link_to category.title, category, class: 'link-dark text-decoration-none'
+          .card-text.mb-2
+            = truncate(category.description, length: 300)
