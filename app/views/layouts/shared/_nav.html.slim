@@ -21,3 +21,12 @@
         - else
           li.nav-item.me-2
             = button_to ('layouts.nav.sign_in'), auth_request_path(:github), data: { turbo: false }, class: 'btn btn-outline-dark'
+        li.nav-item.dropdown
+          a.nav-link.dropdown-toggle href='#' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'
+           span.me-2 = I18n.locale.upcase
+          ul.dropdown-menu.dropdown-menu-end
+            li
+              - I18n.available_locales.without(I18n.locale).each do |locale|
+                = link_to switch_locale_path(new_locale: locale), class: 'dropdown-item d-flex' do
+                  = image_tag "flag-#{locale}.svg", width: 25, alt: "switch language to #{locale}", class: 'my-auto me-2'
+                  span.my-auto = t(".#{locale}")
