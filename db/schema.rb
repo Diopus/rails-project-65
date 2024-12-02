@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_12_01_170413) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_02_184915) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -42,7 +42,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_01_170413) do
   create_table "bulletins", force: :cascade do |t|
     t.string "title", limit: 50, null: false
     t.text "description", limit: 1000, null: false
-    t.string "image", null: false
     t.integer "category_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
