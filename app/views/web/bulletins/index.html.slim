@@ -11,6 +11,7 @@ h1 = t('.title')
             = truncate(bulletin.description, length: 300)
           .text-right.small.text-muted.mt-auto
             span.me-2
-              = time_ago_in_words(post.created_at)
+              = time_ago_in_words(bulletin.created_at)
             span
               = bulletin.user.email
+            = image_tag bulletin.image.variant(resize_to_limit: [200, 100]), class: 'img-thumbnail'
