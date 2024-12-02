@@ -25,7 +25,7 @@ module Web
     private
 
     def bulletin_params
-      params.require(:bulletin).permit(:title, :description, :image)
+      params.require(:bulletin).permit(:category_id, :description, :image, :title)
     end
 
     def set_bulletin
