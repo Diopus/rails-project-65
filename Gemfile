@@ -8,6 +8,8 @@ gem 'bootstrap'
 
 gem 'i18n-tasks'
 
+gem 'image_processing'
+
 gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
 
