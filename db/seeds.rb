@@ -1,32 +1,37 @@
 # frozen_string_literal: true
 
-images = ['key.jpg', 'door.jpg', 'puddle.jpg']
-
+# Categories
 %w[Клавиши Двери Лужи].each do |category_name|
   Category.find_or_create_by!(name: category_name)
 end
 
-# Users
-User.find_or_create_by(email: 'pochta@pochta.com') do |user|
-  user.password = '123456'
-end
+# Images
+images_paths = { 'Клавиши' => Rails.root.join('db/seeds/images/key.jpg'),
+                 'Двери' => Rails.root.join('db/seeds/images/door.jpg'),
+                 'Лужи' => Rails.root.join('db/seeds/images/puddle.jpg') }
 
-5.times do
+# Users
+2.times do
   User.create!(
     email: Faker::Internet.email,
-    password: Faker::Internet.password
+    name: Faker::Name
   )
 end
 
-# Posts
+# Bulletins
 users = User.all
-users.each do |user|
-  rand(0..2).times do
-    user.bulletin.create!(
-      category: Category.all.sample,
-      description: Faker::Lorem.paragraph_by_chars(number: rand(Post.description_max_length)),
-      image: images.sample,
-      title: Faker::Lorem.paragraph_by_chars(number: rand(1..Post.title_max_length))
-    )
+ActiveRecord::Base.transaction do
+  users.each do |user|
+    rand(0..2).times do
+      category = Category.all.sample
+      image = images_paths[category.name]
+
+      user.bulletins.create!(
+        category:,
+        description: Faker::Lorem.paragraph_by_chars(number: rand(1..Bulletin.description_max_length)),
+        image:,
+        title: Faker::Lorem.paragraph_by_chars(number: rand(1..Bulletin.title_max_length))
+      )
+    end
   end
 end
