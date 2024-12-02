@@ -14,7 +14,7 @@ images_paths = { 'Клавиши' => Rails.root.join('db/seeds/images/key.jpg'),
 2.times do
   User.create!(
     email: Faker::Internet.email,
-    name: Faker::Name
+    name: Faker::Name.name
   )
 end
 
