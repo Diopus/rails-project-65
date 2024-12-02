@@ -32,10 +32,12 @@ nav.navbar.navbar-expand-md.navbar-light
               li
                 = button_to t('layouts.nav.log_out'), auth_logout_path, method: :delete, class: 'dropdown-item'
         - else
-          li.nav-item
+          li.nav-item.me-2
+            = button_to t('layouts.nav.sign_in'), auth_request_path(:developer), data: { turbo: false }, class: 'btn btn-outline-primary' if Rails.env.development?
+          li.nav-item.me-2
             = button_to auth_request_path(:github), data: { turbo: false }, class: 'btn btn-outline-primary' do
-              span.bi.bi-github.me-2
-              = t('layouts.nav.sign_in')
+              = t('layouts.nav.sign_in_with')
+              span.bi.bi-github.ms-1
 
         / Переключение языков
         li.nav-item.dropdown
