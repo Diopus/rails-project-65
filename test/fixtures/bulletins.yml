@@ -1,13 +1,11 @@
 one:
   title: "Brand New Car"
   description: "This is a great car for everyday use."
-  image: "car.png"
   category: one
   user: one
 
 two:
   title: "Modern Coat"
   description: "Spacious coat in a great color."
-  image: "coat.png"
   category: two
   user: one
