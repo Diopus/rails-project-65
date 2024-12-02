@@ -1,0 +1,11 @@
+= content_for :title do
+  = @bulletin.title
+
+.row
+  .col-6
+    p
+      strong.me-2 = t('.description')
+      = @bulletin.description
+  .col-6
+    - if @bulletin.image_attachment
+      = image_tag(@bulletin.image, class: 'img-fluid')
