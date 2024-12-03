@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 
 gem 'active_storage_validations'
 
+gem 'aws-sdk-s3'
+
 gem 'bootstrap'
 
 gem 'i18n-tasks'
