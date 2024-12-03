@@ -8,6 +8,8 @@ gem 'aws-sdk-s3'
 
 gem 'bootstrap'
 
+gem 'file_validators'
+
 gem 'i18n-tasks'
 
 gem 'image_processing'
