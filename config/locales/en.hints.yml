@@ -1,0 +1,14 @@
+en:
+  hints:
+    length:
+      max_length:
+        one: Maximum 1 character 
+        other: 'Maximum %{count} characters'
+
+      min_length:
+        one: At least 1 character
+        other: 'At least %{count} characters'
+
+      min_max_length:
+        one: '%{min_length} to 1 characters'
+        other: '%{min_length} to %{max_length} characters'
