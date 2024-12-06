@@ -12,11 +12,22 @@ module Web
       @bulletin = Bulletin.find(params[:id])
     end
 
-    def new; end
+    def new
+      @bulletin = Bulletin.new
+    end
 
     def edit; end
 
-    def create; end
+    def create
+      @bulletin = current_user.bulletins.build(bulletin_params)
+
+      if @bulletin.save
+        redirect_to bulletin_path(@bulletin), notice: I18n.t('bulletins.create.success')
+      else
+        flash.now[:alert] = I18n.t('bulletins.create.error')
+        render :new, status: :unprocessable_entity
+      end
+    end
 
     def update; end
 
