@@ -1,17 +1,13 @@
 = content_for :title do
   = t('.title')
 
-- @bulletins.each do |bulletin|
-  .col-md-12
-    .card.mb-3
-      .card-body
-        .h5.card-title
-          = link_to bulletin.title, bulletin, class: 'link-dark text-decoration-none'
-        .card-text.mb-2
-          = truncate(bulletin.description, length: 300)
-        .text-right.small.text-muted.mt-auto
-          span.me-2
+.row.mt-2
+  - @bulletins.each do |bulletin|
+    .col-3.pt-2
+      .card.shadow-sm
+        = image_tag bulletin.image, class: 'card-img-top x-object-fit-cover', height: 200
+        .card-body.d-flex.flex-column
+          .h5.card-title
+            = link_to bulletin.title, bulletin, class: 'link-dark'
+          .h6.card-subtitle.mb-2.text-muted.mt-auto
             = time_ago_in_words(bulletin.created_at)
-          span
-            = bulletin.user.email
-          = image_tag bulletin.image.variant(resize_to_limit: [200, 100]), class: 'img-thumbnail'
