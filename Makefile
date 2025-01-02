@@ -25,3 +25,7 @@ setup-env:
 		cp .env.example .env; \
 		echo ".env file created. Please update the .env file with your credentials (e.g., ID and Secret)."; \
 	fi
+
+front:
+	bin/rails assets:precompile
+	bin/rails s
