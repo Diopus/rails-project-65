@@ -45,6 +45,18 @@ SimpleForm.setup do |config|
   config.input_field_error_class = 'is-invalid'
   config.input_field_valid_class = 'is-valid'
 
+  config.wrappers :filepond_file, tag: 'div', class: 'form-group', error_class: 'is-invalid' do |b|
+    b.use :html5
+    b.use :placeholder
+    b.optional :maxlength
+    b.use :label
+    b.wrapper tag: 'div', class: 'form-control' do |ba|
+      ba.use :input, class: 'filepond'
+    end
+    b.use :full_error, wrap_with: { tag: 'div', class: 'invalid-feedback' }
+    b.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
+  end
+
   # vertical forms
   #
   # vertical default_wrapper
