@@ -1,4 +1,4 @@
-= simple_form_for bulletin, html: { novalidate: 'novalidate' } do |f|
+= simple_form_for bulletin, html: { novalidate: 'novalidate', multipart: true, data: { turbo: false } } do |f|
   = f.input :title,
     required: true,
     maxlength: true,
@@ -17,8 +17,10 @@
   - if bulletin.image_attachment
     = image_tag bulletin.image.variant(resize_to_limit: [200, 100]), class: 'img-thumbnail mb-2'
 
-  = f.file_field :image,
+  = f.input :image,
+    as: :file,
     required: true,
-    label_html: { class: 'mt-3' }
+    label_html: { class: 'mt-3' },
+    wrapper: :filepond_file
 
   = f.button :submit, class: 'btn-primary mt-4'
