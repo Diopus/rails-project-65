@@ -13,12 +13,24 @@ FilePond.registerPlugin(
   FilePondPluginFileValidateType
 );
 
-// Use for all input fields with "file"
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("turbo:load", loadFilePond);
+
+function loadFilePond() {
   const imageInput = document.querySelector('#bulletin_image');
-  FilePond.create(imageInput, {
+
+  const pond = FilePond.create(imageInput, {
+    credits: {},
+    storeAsFile: true,
+    allowReorder: true,
     maxFileSize: '5MB',
     acceptedFileTypes: ['image/jpeg', 'image/png'],
-    server: '/rails/active_storage/direct_uploads'
+    stylePanelLayout: 'integrated',
+    stylePanelAspectRatio: '0.1',
+    labelIdle: `
+      <div class="text-center">
+        <span class="text-muted">Перетащите изображение или <span class="text-primary">выберите файл</span></span>
+        <br>
+        <i class="bi bi-cloud-arrow-up text-primary" style="font-size: 2rem;"></i>
+      </div>`,
   });
-});
+}

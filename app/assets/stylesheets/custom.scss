@@ -1,0 +1,32 @@
+.card-title {
+  min-height: 3rem; /* Высота для двух строк текста */
+  overflow: hidden; /* Обрезает текст, если он выходит за границы */
+  text-overflow: ellipsis; /* Три точки в конце текста */
+  display: -webkit-box; /* Для многократных строк */
+  -webkit-line-clamp: 2; /* Ограничивает до двух строк */
+  -webkit-box-orient: vertical;
+  line-height: 1.5rem; /* Высота строки для красивого расчёта */
+}
+  
+.card-body {
+  display: flex;
+  flex-direction: column; /* Вертикальное выравнивание содержимого */
+}
+
+.card-subtitle {
+  margin-top: auto; /* Сдвигает текст времени создания к нижнему краю карточки */
+}
+
+.filepond--label-action {
+  color: #007bff;
+  font-size: 1rem;
+}
+  
+.filepond--panel {
+  border-radius: 8px;
+  // border: 2px dashed #007bff;
+}
+
+.filepond--panel-root {
+  background-color: transparent !important;
+}
