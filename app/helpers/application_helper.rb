@@ -3,6 +3,15 @@
 module ApplicationHelper
   include FieldLengthHelper
 
+  def active?(path, options = {})
+    # raise options.inspect
+    if options.key? :active_if
+      'active' if options[:active_if]
+    elsif current_page?(path)
+      'active'
+    end
+  end
+
   def bootstrap_flash_class(type)
     case type
     when 'notice' then 'alert-primary'
@@ -35,4 +44,21 @@ module ApplicationHelper
       'min_length'
     end
   end
+
+  # rubocop:disable Rails/OutputSafety
+  def sidebar_menu_item(name, fa_class = nil, path = '#', *args, &)
+    args_options = args.extract_options!
+    options = { class: class_names('nav-link text-body ps-0', 'fw-bold': active?(path)) }.merge args_options
+    tag.li class: 'nav-item mb-3' do
+      link_to path, options do
+        [
+          if fa_class
+            tag.span(nil, class: "bi #{fa_class} me-2")
+          end,
+          tag.span(name, class: '', &)
+        ].join.html_safe
+      end
+    end
+  end
+  # rubocop:enable Rails/OutputSafety
 end
