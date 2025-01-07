@@ -5,7 +5,8 @@
   - @bulletins.each do |bulletin|
     .col
       .card.h-100.shadow-sm
-        = image_tag bulletin.image, class: 'card-img-top', style: 'object-fit: cover; height: 200px;'
+        = link_to bulletin do
+          = image_tag bulletin.image, class: 'card-img-top', style: 'object-fit: cover; height: 200px;'
         .card-body.d-flex.flex-column
           .h5.card-title
             = link_to bulletin.title, bulletin, class: 'link-dark text-decoration-none'
