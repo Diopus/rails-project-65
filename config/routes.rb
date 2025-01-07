@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   scope '(:locale)', locale: /en|ru/ do
     namespace :admin do
-      root 'bulletins#index'
+      root 'dashboards#index'
       resources :categories
       resources :bulletins
     end
