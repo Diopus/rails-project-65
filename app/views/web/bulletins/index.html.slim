@@ -1,13 +1,13 @@
 = content_for :title do
   = t('.title')
 
-.row.mt-2
+.row.row-cols-1.row-cols-sm-2.row-cols-md-3.row-cols-lg-4.g-4.mt-2
   - @bulletins.each do |bulletin|
-    .col-3.pt-2
-      .card.shadow-sm
-        = image_tag bulletin.image, class: 'card-img-top x-object-fit-cover', height: 200
+    .col
+      .card.h-100.shadow-sm
+        = image_tag bulletin.image, class: 'card-img-top', style: 'object-fit: cover; height: 200px;'
         .card-body.d-flex.flex-column
           .h5.card-title
-            = link_to bulletin.title, bulletin, class: 'link-dark'
-          .h6.card-subtitle.mb-2.text-muted.mt-auto
+            = link_to bulletin.title, bulletin, class: 'link-dark text-decoration-none'
+          .h6.card-subtitle.text-muted.small.mt-auto
             = time_ago_in_words(bulletin.created_at)
