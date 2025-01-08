@@ -6,7 +6,7 @@ module Admin
     before_action :set_bulletin, only: %i[index]
 
     def index
-      @bulletins = Bulletin.all
+      @bulletins = Bulletin.order('created_at desc')
     end
 
     private

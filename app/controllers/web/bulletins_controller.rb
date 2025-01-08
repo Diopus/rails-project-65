@@ -5,7 +5,7 @@ module Web
     before_action :set_bulletin, only: %i[show edit update destroy]
 
     def index
-      @bulletins = Bulletin.all
+      @bulletins = Bulletin.order('created_at desc')
     end
 
     def show
