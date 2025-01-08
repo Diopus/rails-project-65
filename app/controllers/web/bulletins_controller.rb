@@ -10,6 +10,10 @@ module Web
 
     def show
       @bulletin = Bulletin.find(params[:id])
+      @user_name = @bulletin.user.name
+
+      email = @bulletin.user.email
+      @user_email = email[email.index('@')..]
     end
 
     def new
