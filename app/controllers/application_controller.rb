@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
 
   include Authentication
+  include Pundit::Authorization
 
   helper_method :user_signed_in?, :current_user
 
