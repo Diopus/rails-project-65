@@ -2,10 +2,15 @@
   = @bulletin.title
 
 .row
-  .col-6
-    p
-      strong.me-2 = t('.description')
-      = @bulletin.description
-  .col-6
+  .col-md-8
     - if @bulletin.image_attachment
-      = image_tag(@bulletin.image, class: 'img-fluid')
+      .mb-2 = image_tag(@bulletin.image, class: 'img-fluid')
+    p
+      = @bulletin.description
+  .col-md-4
+    .card
+      .card-body
+        .h5
+          = @user_name
+        .h6.mb-2.text-muted
+          = @user_email
