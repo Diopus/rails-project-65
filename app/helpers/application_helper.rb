@@ -48,8 +48,8 @@ module ApplicationHelper
   # rubocop:disable Rails/OutputSafety
   def sidebar_menu_item(name, fa_class = nil, path = '#', *args, &)
     args_options = args.extract_options!
-    options = { class: class_names('nav-link text-body ps-0', 'fw-bold': active?(path)) }.merge args_options
-    tag.li class: 'nav-item mb-3' do
+    options = { class: class_names('nav-link ps-0', active: active?(path)) }.merge args_options
+    tag.li class: 'nav-item mb-1' do
       link_to path, options do
         [
           if fa_class
