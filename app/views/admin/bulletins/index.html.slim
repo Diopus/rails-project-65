@@ -1,17 +1,20 @@
 h1 = t('.title')
 
-.row
-  - @bulletins.each do |bulletin|
-    .col-md-12
-      .card.mb-3
-        .card-body
-          .h5.card-title
-            = link_to bulletin.title, bulletin, class: 'link-dark text-decoration-none'
-          .card-text.mb-2
-            = truncate(bulletin.description, length: 300)
-          .text-right.small.text-muted.mt-auto
-            span.me-2
-              = time_ago_in_words(bulletin.created_at)
-            span
-              = bulletin.user.email
-            = image_tag bulletin.image.variant(resize_to_limit: [200, 100]), class: 'img-thumbnail'
+table.table.table-striped.table-hover.mb-5
+  thead
+    tr
+      th{ scope = 'col' } = t('.title')
+      th{ scope = 'col' } = t('.state')
+      th{ scope = 'col' } = t('.created_at')
+      th{ scope = 'col' } = t('.actions')
+      th
+
+  tbody
+    - @bulletins.each do |bulletin|
+      tr
+        td = link_to bulletin.title, bulletin_path(bulletin)
+        td = bulletin.user.name
+        td = time_ago_in_words(bulletin.created_at)
+
+        td.d-flex
+          = link_to t('archive'), edit_bulletin_path(bulletin), class: 'me-4'
