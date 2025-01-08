@@ -1,0 +1,7 @@
+= simple_form_for category, url: do |f|
+  = f.input :name,
+    required: true,
+    maxlength: true,
+    hint: build_field_length_hint(Category, :name)
+
+  = f.button :submit, class: 'btn-primary mt-4'
