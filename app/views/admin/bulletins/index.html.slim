@@ -13,7 +13,7 @@ table.table.table-striped.table-hover.mb-5
     - @bulletins.each do |bulletin|
       tr
         td = link_to bulletin.title, bulletin_path(bulletin)
-        td = bulletin.user.name
+        td = t("aasm.bulletin.states.#{bulletin.state}")
         td = time_ago_in_words(bulletin.created_at)
 
         td
