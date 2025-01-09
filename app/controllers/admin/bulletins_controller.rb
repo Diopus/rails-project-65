@@ -10,8 +10,6 @@ module Admin
 
     # AASM
     def publish
-      authorize @bulletin
-
       if @bulletin.may_publish?
         @bulletin.publish!
 
@@ -24,8 +22,6 @@ module Admin
     end
   
     def reject
-      authorize @bulletin
-
       if @bulletin.may_reject?
         @bulletin.reject!
 
