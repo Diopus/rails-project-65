@@ -3,10 +3,12 @@
 class BulletinPolicy < ApplicationPolicy
   attr_reader :user, :bulletin
 
+  # rubocop:disable Lint/MissingSuper
   def initialize(user, bulletin)
     @user = user
     @bulletin = bulletin
   end
+  # rubocop:enable Lint/MissingSuper
 
   # CRUD
   def show?

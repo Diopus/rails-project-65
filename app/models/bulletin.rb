@@ -6,7 +6,7 @@ class Bulletin < ApplicationRecord
   MAX_TITLE_LENGTH = 50
   MAX_DESCRIPTION_LENGTH = 1000
 
-  aasm :column => 'state' do
+  aasm column: 'state' do
     state :draft, initial: true
     state :under_moderation, :rejected, :published, :archived
 
@@ -23,7 +23,7 @@ class Bulletin < ApplicationRecord
     end
 
     event :archive do
-      transitions from: [:draft, :under_moderation, :rejected, :published], to: :archived
+      transitions from: %i[draft under_moderation rejected published], to: :archived
     end
   end
 
