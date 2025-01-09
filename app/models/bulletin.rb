@@ -3,10 +3,29 @@
 class Bulletin < ApplicationRecord
   include AASM
 
-  aasm :column => 'state' do
-  end
   MAX_TITLE_LENGTH = 50
   MAX_DESCRIPTION_LENGTH = 1000
+
+  aasm :column => 'state' do
+    state :draft, initial: true
+    state :under_moderation, :rejected, :published, :archived
+
+    event :to_moderate do
+      transitions from: :draft, to: :under_moderation
+    end
+
+    event :reject do
+      transitions from: :under_moderation, to: :rejected
+    end
+
+    event :publish do
+      transitions from: :under_moderation, to: :published
+    end
+
+    event :archive do
+      transitions from: [:draft, :under_moderation, :rejected, :published], to: :archived
+    end
+  end
 
   belongs_to :category
   belongs_to :user
