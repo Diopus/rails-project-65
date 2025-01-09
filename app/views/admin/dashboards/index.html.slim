@@ -15,6 +15,15 @@ table.table.table-striped.table-hover.mb-5
         td = time_ago_in_words(bulletin.created_at)
 
         td.d-flex
-          = link_to t('publish'), edit_bulletin_path(bulletin), class: 'me-4'
-          = link_to t('reject'), edit_bulletin_path(bulletin), class: 'me-4'
-          = link_to t('archive'), edit_bulletin_path(bulletin), class: 'me-4'
+          = link_to t('aasm.bulletin.actions.publish'),
+                    publish_admin_bulletin_path(bulletin),
+                    data: { turbo_method: :patch, turbo_confirm: t('confirm.bulletin.publish') },
+                    class: 'me-4'
+          = link_to t('aasm.bulletin.actions.reject'),
+                    reject_admin_bulletin_path(bulletin),
+                    data: { turbo_method: :patch, turbo_confirm: t('confirm.bulletin.reject') },
+                    class: 'me-4'
+          = link_to t('aasm.bulletin.actions.archive'),
+                    archive_admin_bulletin_path(bulletin),
+                    data: { turbo_method: :patch, turbo_confirm: t('confirm.bulletin.archive') },
+                    class: 'link-danger me-4'
