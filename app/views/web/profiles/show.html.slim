@@ -1,0 +1,32 @@
+= content_for :title do
+  = t('titles.bulletins.my')
+
+table.table.table-striped.table-hover.mb-5
+  thead
+    tr
+      th{ scope = 'col' } = t('active_record.attributes.bulletin.title')
+      th{ scope = 'col' } = t('active_record.attributes.bulletin.state')
+      th{ scope = 'col' } = t('active_record.attributes.bulletin.created_at')
+      th{ scope = 'col' } = t('tables.headers.actions')
+      th
+
+  tbody
+    - @bulletins.each do |bulletin|
+      tr
+        td = link_to bulletin.title, bulletin_path(bulletin)
+        td = t("aasm.bulletin.states.#{bulletin.state}")
+        td = time_ago_in_words(bulletin.created_at)
+
+        td.d-flex
+          = link_to t('.edit'), edit_bulletin_path(bulletin), class: 'me-4'
+          - if bulletin.may_to_moderate?
+            = link_to t('aasm.bulletin.actions.to_moderate'),
+                      to_moderate_bulletin_path(bulletin),
+                      data: { turbo_method: :patch },
+                      class: 'me-4'
+
+          - if bulletin.may_archive?
+            = link_to t('aasm.bulletin.actions.archive'),
+                      archive_bulletin_path(bulletin),
+                      data: { turbo_method: :patch, turbo_confirm: t('confirmations.archive') },
+                      class: 'link-danger me-4'
