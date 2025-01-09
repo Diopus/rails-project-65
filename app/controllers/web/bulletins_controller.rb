@@ -54,7 +54,7 @@ module Web
         flash.now[:alert] = I18n.t('aasm.bulletin.transitions.archive.failure')
       end
   
-      redirect_back fallback_location: bulletins_path
+      redirect_back fallback_location: profile_path
     end
   
     def to_moderate
@@ -68,7 +68,7 @@ module Web
         flash.now[:alert] = I18n.t('aasm.bulletin.transitions.to_moderate.failure')
       end
   
-      redirect_back fallback_location: bulletins_path
+      redirect_back fallback_location: profile_path
     end
 
     private
