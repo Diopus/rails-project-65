@@ -76,7 +76,7 @@ group :development, :test do
 
   gem 'dotenv-rails'
 
-    # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
+  # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem 'brakeman', require: false
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
