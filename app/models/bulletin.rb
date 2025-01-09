@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class Bulletin < ApplicationRecord
+  include AASM
+
+  aasm :column => 'state' do
+  end
   MAX_TITLE_LENGTH = 50
   MAX_DESCRIPTION_LENGTH = 1000
 
