@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       resources :categories
       resources :bulletins do
         member do
+          patch :archive
           patch :publish
           patch :reject
         end
