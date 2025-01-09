@@ -24,6 +24,11 @@ class BulletinPolicy < ApplicationPolicy
     admin?
   end
 
+  # AASM
+  def archive?
+    author?
+  end
+
   def to_moderate?
     author?
   end
