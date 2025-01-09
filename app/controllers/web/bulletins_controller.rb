@@ -2,7 +2,8 @@
 
 module Web
   class BulletinsController < ApplicationController
-    before_action :set_bulletin, only: %i[show edit update destroy]
+    before_action :authenticate_user!, only: %i[new edit update create]
+    before_action :set_bulletin, only: %i[show edit update]
 
     def index
       @bulletins = Bulletin.order('created_at desc')
