@@ -2,11 +2,12 @@
 
 module Web
   class BulletinsController < ApplicationController
-    before_action :authenticate_user!, only: %i[new edit update create]
-    before_action :set_bulletin, only: %i[show edit update]
+    before_action :authenticate_user!, only: %i[new edit update create archive to_moderate]
+    before_action :set_bulletin, only: %i[show edit update archive to_moderate]
 
+    # CRUD
     def index
-      @bulletins = Bulletin.order('created_at desc')
+      @bulletins = Bulletin.published.order('created_at desc')
     end
 
     def show
@@ -32,13 +33,42 @@ module Web
       if @bulletin.save
         redirect_to bulletin_path(@bulletin), notice: I18n.t('bulletins.create.success')
       else
-        flash.now[:alert] = I18n.t('bulletins.create.error')
+        flash.now[:alert] = I18n.t('bulletins.create.failure')
         render :new, status: :unprocessable_entity
       end
     end
 
     def update
       authorize @bulletin
+    end
+
+    # AASM
+    def archive
+      authorize @bulletin
+
+      if @bulletin.may_archive?
+        @bulletin.archive!
+
+        flash.now[:notice] = I18n.t('aasm.bulletin.transitions.archive.success')
+      else
+        flash.now[:alert] = I18n.t('aasm.bulletin.transitions.archive.failure')
+      end
+  
+      redirect_back fallback_location: bulletins_path
+    end
+  
+    def to_moderate
+      authorize @bulletin
+
+      if @bulletin.may_to_moderate?
+        @bulletin.to_moderate!
+
+        flash.now[:notice] = I18n.t('aasm.bulletin.transitions.to_moderate.success')
+      else
+        flash.now[:alert] = I18n.t('aasm.bulletin.transitions.to_moderate.failure')
+      end
+  
+      redirect_back fallback_location: bulletins_path
     end
 
     private
