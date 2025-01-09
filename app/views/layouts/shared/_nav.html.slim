@@ -22,7 +22,7 @@
         ul.navbar-nav.me-auto.mb-2.mb-md-0
           - if user_signed_in?
             li.nav-item
-              = link_to t('layouts.nav.my_bulletins'), bulletins_path, class: 'nav-link'
+              = link_to t('layouts.nav.my_bulletins'), profile_path, class: 'nav-link'
             li.nav-item.d-flex.align-items-center
               = link_to new_bulletin_path, class: 'btn btn-outline-primary btn-sm' do
                 i.bi.bi-plus-circle.me-1
