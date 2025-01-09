@@ -10,6 +10,8 @@ gem 'aws-sdk-s3'
 
 gem 'bootstrap'
 
+gem 'faker'
+
 gem 'file_validators'
 
 gem 'i18n-tasks'
@@ -74,9 +76,7 @@ group :development, :test do
 
   gem 'dotenv-rails'
 
-  gem 'faker'
-
-  # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
+    # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem 'brakeman', require: false
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
