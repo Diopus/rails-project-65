@@ -2,13 +2,25 @@
 
 module Admin
   class BulletinsController < ApplicationController
-    before_action :set_bulletin, only: %i[publish reject]
+    before_action :set_bulletin, only: %i[archive publish reject]
 
     def index
       @bulletins = Bulletin.order('created_at desc')
     end
 
     # AASM
+    def archive
+      if @bulletin.may_archive?
+        @bulletin.archive!
+
+        flash.now[:notice] = I18n.t('aasm.bulletin.transitions.archive.success')
+      else
+        flash.now[:alert] = I18n.t('aasm.bulletin.transitions.archive.failure')
+      end
+  
+      redirect_back fallback_location: admin_root_path
+    end
+
     def publish
       if @bulletin.may_publish?
         @bulletin.publish!
@@ -18,7 +30,7 @@ module Admin
         flash.now[:alert] = I18n.t('aasm.bulletin.transitions.publish.failure')
       end
   
-      redirect_back fallback_location: bulletins_path
+      redirect_back fallback_location: admin_root_path
     end
   
     def reject
