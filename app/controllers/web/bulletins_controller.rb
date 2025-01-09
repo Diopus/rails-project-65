@@ -10,18 +10,21 @@ module Web
     end
 
     def show
-      @bulletin = Bulletin.find(params[:id])
-      @user_name = @bulletin.user.name
+      authorize @bulletin
+
+      @author_name = @bulletin.user.name
 
       email = @bulletin.user.email
-      @user_email = email[email.index('@')..]
+      @author_email = email[email.index('@')..]
     end
 
     def new
       @bulletin = Bulletin.new
     end
 
-    def edit; end
+    def edit
+      authorize @bulletin
+    end
 
     def create
       @bulletin = current_user.bulletins.build(bulletin_params)
@@ -34,9 +37,9 @@ module Web
       end
     end
 
-    def update; end
-
-    def destroy; end
+    def update
+      authorize @bulletin
+    end
 
     private
 
