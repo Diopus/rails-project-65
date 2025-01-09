@@ -1,0 +1,32 @@
+en:
+  active_record:
+    attributes:
+      bulletin:
+        category: Category
+        created_at: Created
+        description: Description
+        state: State
+        title: Title
+      category:
+        name: Name
+        
+    errors:
+      models:
+        post:
+          attributes:
+            category:
+              required: couldn't be blank
+        user:
+          attributes:
+            email:
+              blank: couldn't be blank
+            password:
+              blank: couldn't be blank
+
+    models:
+      user:
+        zero: No users
+        one: User
+        few: Users
+        many: Users
+        other: Users

@@ -1,0 +1,29 @@
+ru:
+  aasm:
+    bulletin:
+      actions:
+        to_moderate: На модерацию
+        publish: Опубликовать
+        reject: Отклонить
+        archive: В Архив
+
+      states:
+        archived: Архивировано
+        draft: Черновик
+        published: Опубликовано
+        rejected: Отклонено
+        under_moderation: "На модерации"
+
+      transitions:
+        to_moderate:
+          success: "Объявление успешно отправлено на модерацию."
+          failure: "Не удалось отправить объявление на модерацию."
+        publish:
+          success: "Объявление успешно опубликовано."
+          failure: "Не удалось опубликовать объявление."
+        reject:
+          success: "Объявление успешно отклонено."
+          failure: "Не удалось отклонить объявление."
+        archive:
+          success: "Объявление успешно архивировано."
+          failure: "Не удалось архивировать объявление."

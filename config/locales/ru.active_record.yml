@@ -1,0 +1,32 @@
+ru:
+  active_record:
+    attributes:
+      bulletin:
+        category: Категория
+        created_at: Дата создания
+        description: Содержание
+        state: Состояние
+        title: Заголовок
+      category:
+        name: Название
+
+    errors:
+      models:
+        post:
+          attributes:
+            category:
+              required: не может отсутствовать
+        user:
+          attributes:
+            email:
+              blank: не может быть пустым
+            password:
+              blank: не может быть пустым
+
+    models:
+      user:
+        zero: Нет пользователей
+        one: Пользователь
+        few: Пользователя
+        many: Пользователей
+        other: Пользователей
