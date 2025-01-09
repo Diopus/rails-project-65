@@ -30,7 +30,7 @@ module Admin
         flash.now[:alert] = I18n.t('aasm.bulletin.transitions.reject.failure')
       end
   
-      redirect_back fallback_location: bulletins_path
+      redirect_back fallback_location: admin_root_path
     end
 
     private
