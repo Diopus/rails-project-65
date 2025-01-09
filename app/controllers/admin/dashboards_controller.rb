@@ -3,7 +3,7 @@
 module Admin
   class DashboardsController < ApplicationController
     def index
-      @bulletins = Bulletin.all
+      @bulletins = Bulletin.under_moderation
     end
   end
 end
