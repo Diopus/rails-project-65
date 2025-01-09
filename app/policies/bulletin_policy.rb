@@ -8,8 +8,9 @@ class BulletinPolicy < ApplicationPolicy
     @bulletin = bulletin
   end
 
+  # CRUD
   def show?
-    author? || admin?
+    bulletin.published? || author? || admin?
   end
 
   def edit?
