@@ -1,4 +1,4 @@
-h1 = t('titles.bulletins.under_moderation')
+h1 = t('bulletins.titles.under_moderation')
 
 table.table.table-striped.table-hover.mb-5
   thead
@@ -17,13 +17,13 @@ table.table.table-striped.table-hover.mb-5
         td.d-flex
           = link_to t('aasm.bulletin.actions.publish'),
                     publish_admin_bulletin_path(bulletin),
-                    data: { turbo_method: :patch, turbo_confirm: t('confirm.bulletin.publish') },
+                    data: { turbo_method: :patch, turbo_confirm: t('bulletins.confirmation.publish') },
                     class: 'me-4'
           = link_to t('aasm.bulletin.actions.reject'),
                     reject_admin_bulletin_path(bulletin),
-                    data: { turbo_method: :patch, turbo_confirm: t('confirm.bulletin.reject') },
+                    data: { turbo_method: :patch, turbo_confirm: t('bulletins.confirmation.reject') },
                     class: 'me-4'
           = link_to t('aasm.bulletin.actions.archive'),
                     archive_admin_bulletin_path(bulletin),
-                    data: { turbo_method: :patch, turbo_confirm: t('confirm.bulletin.archive') },
+                    data: { turbo_method: :patch, turbo_confirm: t('bulletins.confirmation.archive') },
                     class: 'link-danger me-4'

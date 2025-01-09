@@ -1,26 +1,5 @@
 en:
-  confirm:
-    bulletin:
-      archive: Do you really want to archive this bulletin?
-      delete: Do you really want to delete this bulletin?
-      publish: Do you really want to publish this bulletin?
-      reject: Do you really want to reject this bulletin?
-    category:
-      delete: 'Do you really want to delete category "%{name}"?'
-  links:
-    delete: Delete
-    edit: Edit
-    new:
-      bulletin: New bulletin
-      category: Add category
-
   tables:
     headers:
       actions: Actions
-
-  titles:
-    bulletins:
-      all: Bulletins
-      my: My bulletins
-      under_moderation: Bulletins under moderation
-    categories: Categories
+      id: ID

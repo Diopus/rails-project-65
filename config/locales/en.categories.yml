@@ -1,0 +1,21 @@
+en:
+  categories:
+    confirmation:
+      delete: Do you really want to delete category "%{name}"?
+    crud:
+      create:
+        success: Category has been successfully created
+        failure: Category couldn't be created
+      destroy:
+        success: Category has been successfully deleted
+      update:
+        success: Category has been successfully updated
+        failure: Category couldn't be updated
+    links:
+      delete: Delete
+      edit: Edit
+      new: Add category
+    titles:
+      all: Categories
+      edit: Edit category
+      new: New category

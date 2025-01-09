@@ -31,9 +31,9 @@ module Web
       @bulletin = current_user.bulletins.build(bulletin_params)
 
       if @bulletin.save
-        redirect_to bulletin_path(@bulletin), notice: I18n.t('bulletins.create.success')
+        redirect_to bulletin_path(@bulletin), notice: I18n.t('bulletins.crud.create.success')
       else
-        flash.now[:alert] = I18n.t('bulletins.create.failure')
+        flash.now[:alert] = I18n.t('bulletins.crud.create.failure')
         render :new, status: :unprocessable_entity
       end
     end
@@ -53,10 +53,10 @@ module Web
       else
         flash.now[:alert] = I18n.t('aasm.bulletin.transitions.archive.failure')
       end
-  
+
       redirect_back fallback_location: profile_path
     end
-  
+
     def to_moderate
       authorize @bulletin
 
@@ -67,7 +67,7 @@ module Web
       else
         flash.now[:alert] = I18n.t('aasm.bulletin.transitions.to_moderate.failure')
       end
-  
+
       redirect_back fallback_location: profile_path
     end
 

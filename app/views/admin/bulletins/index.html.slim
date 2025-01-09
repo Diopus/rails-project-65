@@ -1,4 +1,4 @@
-h1 = t('titles.bulletins.all')
+h1 = t('bulletins.titles.all')
 
 table.table.table-striped.table-hover.mb-5
   thead
@@ -20,5 +20,5 @@ table.table.table-striped.table-hover.mb-5
           - if bulletin.may_archive?
             = link_to t('aasm.bulletin.actions.archive'),
                       archive_admin_bulletin_path(bulletin),
-                      data: { turbo_method: :patch, turbo_confirm: t('confirm.bulletin.archive') },
+                      data: { turbo_method: :patch, turbo_confirm: t('bulletins.confirmation.archive') },
                       class: 'link-danger me-2'

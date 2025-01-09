@@ -1,0 +1,21 @@
+en:
+  bulletins:
+    confirmation:
+      archive: Do you really want to archive this bulletin?
+      delete: Do you really want to delete this bulletin?
+      publish: Do you really want to publish this bulletin?
+      reject: Do you really want to reject this bulletin?
+    crud:
+      create:
+        success: Bulletin has been successfully created
+        failure: Bulletin couldn't be created
+    links:
+      delete: Delete
+      edit: Edit
+      new: New bulletin
+    titles:
+      all: Bulletins
+      edit: Edit bulletin
+      my: My bulletins
+      new: New bulletin
+      under_moderation: Bulletins under moderation

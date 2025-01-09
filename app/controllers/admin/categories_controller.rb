@@ -12,16 +12,15 @@ module Admin
       @category = Category.new
     end
 
-    def edit
-    end
+    def edit; end
 
     def create
       @category = Category.new(category_params)
 
       if @category.save
-        redirect_to admin_categories_path, notice: I18n.t('categories.create.success')
+        redirect_to admin_categories_path, notice: I18n.t('categories.crud.create.success')
       else
-        flash.now[:alert] = I18n.t('categories.create.error')
+        flash.now[:alert] = I18n.t('categories.crud.create.failure')
         render :new, status: :unprocessable_entity
       end
     end
@@ -29,9 +28,9 @@ module Admin
     def update
       @category = Category.find params[:id]
       if @category.update(category_params)
-        redirect_to admin_categories_path, notice: I18n.t('categories.update.success')
+        redirect_to admin_categories_path, notice: I18n.t('categories.crud.update.success')
       else
-        flash.now[:alert] = I18n.t('categories.update.error')
+        flash.now[:alert] = I18n.t('categories.crud.update.failure')
         render :edit, status: :unprocessable_entity
       end
     end
@@ -39,7 +38,7 @@ module Admin
     def destroy
       @category&.destroy!
 
-      redirect_to admin_categories_path, notice: I18n.t('categories.destroy.success')
+      redirect_to admin_categories_path, notice: I18n.t('categories.crud.destroy.success')
     end
 
     private

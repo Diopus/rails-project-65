@@ -1,7 +1,7 @@
 = content_for :title do
-  = t('titles.bulletins.my')
+  = t('bulletins.titles.my')
 
-= link_to t('links.new.bulletin'), new_bulletin_path, class: 'btn btn-primary my-2'
+= link_to t('bulletins.links.new'), new_bulletin_path, class: 'btn btn-primary my-2'
 
 table.table.table-striped.table-hover.mb-5
   thead
@@ -20,7 +20,7 @@ table.table.table-striped.table-hover.mb-5
         td = time_ago_in_words(bulletin.created_at)
 
         td.d-flex
-          = link_to t('.edit'), edit_bulletin_path(bulletin), class: 'me-4'
+          = link_to t('bulletins.links.edit'), edit_bulletin_path(bulletin), class: 'me-4'
           - if bulletin.may_to_moderate?
             = link_to t('aasm.bulletin.actions.to_moderate'),
                       to_moderate_bulletin_path(bulletin),
@@ -30,5 +30,5 @@ table.table.table-striped.table-hover.mb-5
           - if bulletin.may_archive?
             = link_to t('aasm.bulletin.actions.archive'),
                       archive_bulletin_path(bulletin),
-                      data: { turbo_method: :patch, turbo_confirm: t('confirm.bulletin.archive') },
+                      data: { turbo_method: :patch, turbo_confirm: t('bulletins.confirmation.archive') },
                       class: 'link-danger me-4'

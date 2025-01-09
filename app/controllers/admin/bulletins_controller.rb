@@ -17,7 +17,7 @@ module Admin
       else
         flash.now[:alert] = I18n.t('aasm.bulletin.transitions.archive.failure')
       end
-  
+
       redirect_back fallback_location: admin_root_path
     end
 
@@ -29,10 +29,10 @@ module Admin
       else
         flash.now[:alert] = I18n.t('aasm.bulletin.transitions.publish.failure')
       end
-  
+
       redirect_back fallback_location: admin_root_path
     end
-  
+
     def reject
       if @bulletin.may_reject?
         @bulletin.reject!
@@ -41,7 +41,7 @@ module Admin
       else
         flash.now[:alert] = I18n.t('aasm.bulletin.transitions.reject.failure')
       end
-  
+
       redirect_back fallback_location: admin_root_path
     end
 

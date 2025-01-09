@@ -8,7 +8,7 @@ module Web
 
       if user.persisted?
         sign_in(user)
-        redirect_to root_path, notice: I18n.t('auth.sign_in')
+        redirect_to root_path, notice: I18n.t('auth.signed_in')
       else
         redirect_to root_path, alert: I18n.t('auth.error')
       end
@@ -16,7 +16,7 @@ module Web
 
     def logout
       sign_out
-      redirect_to root_path, notice: I18n.t('auth.sign_out')
+      redirect_to root_path, notice: I18n.t('auth.signed_out')
     end
 
     private
