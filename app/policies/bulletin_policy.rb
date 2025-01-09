@@ -24,8 +24,8 @@ class BulletinPolicy < ApplicationPolicy
     admin?
   end
 
-  def moderate?
-    author
+  def to_moderate?
+    author?
   end
 
   private
