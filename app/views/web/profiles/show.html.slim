@@ -1,6 +1,8 @@
 = content_for :title do
   = t('titles.bulletins.my')
 
+= link_to t('links.new.bulletin'), new_bulletin_path, class: 'btn btn-primary my-2'
+
 table.table.table-striped.table-hover.mb-5
   thead
     tr
@@ -28,5 +30,5 @@ table.table.table-striped.table-hover.mb-5
           - if bulletin.may_archive?
             = link_to t('aasm.bulletin.actions.archive'),
                       archive_bulletin_path(bulletin),
-                      data: { turbo_method: :patch, turbo_confirm: t('confirmations.archive') },
+                      data: { turbo_method: :patch, turbo_confirm: t('confirm.bulletin.archive') },
                       class: 'link-danger me-4'
