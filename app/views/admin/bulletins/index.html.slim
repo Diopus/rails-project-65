@@ -1,12 +1,12 @@
-h1 = t('.title')
+h1 = t('titles.bulletins.all')
 
 table.table.table-striped.table-hover.mb-5
   thead
     tr
-      th{ scope = 'col' } = t('.title')
-      th{ scope = 'col' } = t('.state')
-      th{ scope = 'col' } = t('.created_at')
-      th{ scope = 'col' } = t('.actions')
+      th{ scope = 'col' } = t('active_record.attributes.bulletin.title')
+      th{ scope = 'col' } = t('active_record.attributes.bulletin.state')
+      th{ scope = 'col' } = t('active_record.attributes.bulletin.created_at')
+      th{ scope = 'col' } = t('tables.headers.actions')
       th
 
   tbody
@@ -17,4 +17,4 @@ table.table.table-striped.table-hover.mb-5
         td = time_ago_in_words(bulletin.created_at)
 
         td.d-flex
-          = link_to t('archive'), edit_bulletin_path(bulletin), class: 'me-4'
+          = link_to t('aasm.bulletin.actions.archive'), edit_bulletin_path(bulletin), class: 'me-4'

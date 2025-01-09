@@ -1,11 +1,11 @@
-h1 = t('.title')
+h1 = t('titles.bulletins.under_moderation')
 
 table.table.table-striped.table-hover.mb-5
   thead
     tr
-      th{ scope = 'col' } = t('.title')
-      th{ scope = 'col' } = t('.created_at')
-      th{ scope = 'col' } = t('.actions')
+      th{ scope = 'col' } = t('active_record.attributes.bulletin.title')
+      th{ scope = 'col' } = t('active_record.attributes.bulletin.created_at')
+      th{ scope = 'col' } = t('tables.headers.actions')
       th
 
   tbody
