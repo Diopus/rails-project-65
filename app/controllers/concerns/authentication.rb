@@ -1,6 +1,20 @@
 # frozen_string_literal: true
 
 module Authentication
+  def authenticate_user!
+    return if user_signed_in?
+
+    flash[:danger] = t('auth.req_log_in')
+    redirect_back(fallback_location: root_path)
+  end
+
+  def authenticate_admin!
+    return if current_user&.admin?
+
+    flash[:danger] = t('auth.req_admin')
+    redirect_back(fallback_location: root_path)
+  end
+
   def current_user
     @current_user ||= session[:user_id] && User.find_by(id: session[:user_id])
   end
