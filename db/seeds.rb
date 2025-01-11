@@ -11,7 +11,7 @@ images_paths = { 'Клавиши' => Rails.root.join('db/seeds/images/key.jpg'),
                  'Лужи' => Rails.root.join('db/seeds/images/puddle.jpg') }
 
 # Users
-2.times do
+3.times do
   User.create!(
     email: Faker::Internet.email,
     name: Faker::Name.name
@@ -22,7 +22,7 @@ end
 users = User.all
 ActiveRecord::Base.transaction do
   users.each do |user|
-    rand(0..2).times do
+    rand(0..4).times do
       category = Category.all.sample
       image = images_paths[category.name]
 
@@ -30,6 +30,7 @@ ActiveRecord::Base.transaction do
         category:,
         description: Faker::Lorem.paragraph_by_chars(number: rand(1..Bulletin.description_max_length)),
         image:,
+        state: Bulletin.aasm.states.map(&:name).sample,
         title: Faker::Lorem.paragraph_by_chars(number: rand(1..Bulletin.title_max_length))
       )
     end
