@@ -21,7 +21,6 @@
     required: true,
     label_html: { class: 'mt-3' },
     wrapper: :filepond_file,
-    input_html: { data: { label_idle: I18n.t('bulletins.image_field.label_idle'),
-                          file_url: bulletin.image.attached? ? url_for(bulletin.image) : nil } }
+    input_html: { data: { label_idle: I18n.t('bulletins.image_field.label_idle'), file_url: image_url } }
 
   = f.button :submit, class: 'btn-primary mt-4'
