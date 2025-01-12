@@ -3,3 +3,16 @@ en:
     headers:
       actions: Actions
       id: ID
+  search:
+    hints:
+      category: Search by category
+      state: Search by state
+      title: Search by title
+    links:
+      submit: Search
+      reset: Reset
+    placeholders:
+      category: Select category...
+      state: Select state...
+      title: Title contains...
+    
