@@ -2,6 +2,9 @@
 
 require_relative 'boot'
 
+# combine the Ransack and SimpleForm form builders
+ENV['RANSACK_FORM_BUILDER'] = '::SimpleForm::FormBuilder'
+
 require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
