@@ -15,8 +15,25 @@ FilePond.registerPlugin(
 
 document.addEventListener("turbo:load", loadFilePond);
 
+function adjustAspectRatio(pond) {
+  const width = window.innerWidth;
+  const hasFile = pond.getFiles().length > 0;
+
+  if (hasFile) {
+    pond.setOptions({
+      stylePanelAspectRatio: width > 768 ? '0.3' : '0.5',
+    });
+  } else {
+    pond.setOptions({
+      stylePanelAspectRatio: '0.1',
+    });
+  }
+}
+
 function loadFilePond() {
   const imageInput = document.querySelector('#bulletin_image');
+  const labelIdle = imageInput.dataset.labelIdle || 'Drag image or choose file';
+  const fileUrl = imageInput.dataset.fileUrl;
 
   const pond = FilePond.create(imageInput, {
     credits: {},
@@ -26,11 +43,15 @@ function loadFilePond() {
     acceptedFileTypes: ['image/jpeg', 'image/png'],
     stylePanelLayout: 'integrated',
     stylePanelAspectRatio: '0.1',
-    labelIdle: `
-      <div class="text-center">
-        <span class="text-muted">Перетащите изображение или <span class="text-primary">выберите файл</span></span>
-        <br>
-        <i class="bi bi-cloud-arrow-up text-primary" style="font-size: 2rem;"></i>
-      </div>`,
+    labelIdle,
   });
+
+  if (fileUrl) {
+    pond.addFile(fileUrl).catch(error => console.error('Error loading file to FilePond:', error));
+  }
+
+  pond.on('addfile', () => adjustAspectRatio(pond));
+  pond.on('removefile', () => adjustAspectRatio(pond));
+
+  window.addEventListener('resize', () => adjustAspectRatio(pond));
 }

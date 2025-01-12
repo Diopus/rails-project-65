@@ -1,20 +1,20 @@
 .card-title {
-  min-height: 3rem; /* Высота для двух строк текста */
-  overflow: hidden; /* Обрезает текст, если он выходит за границы */
-  text-overflow: ellipsis; /* Три точки в конце текста */
-  display: -webkit-box; /* Для многократных строк */
-  -webkit-line-clamp: 2; /* Ограничивает до двух строк */
+  min-height: 3rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  line-height: 1.5rem; /* Высота строки для красивого расчёта */
+  line-height: 1.5rem;
 }
   
 .card-body {
   display: flex;
-  flex-direction: column; /* Вертикальное выравнивание содержимого */
+  flex-direction: column;
 }
 
 .card-subtitle {
-  margin-top: auto; /* Сдвигает текст времени создания к нижнему краю карточки */
+  margin-top: auto;
 }
 
 .filepond--label-action {
@@ -29,4 +29,15 @@
 
 .filepond--panel-root {
   background-color: transparent !important;
+}
+
+.filepond--root {
+  max-height: 400px;
+  min-height: 100px;
+}
+
+@media (max-width: 768px) {
+  .filepond--root {
+    max-height: 300px;
+  }
 }
