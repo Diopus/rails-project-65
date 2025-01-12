@@ -1,6 +1,9 @@
 h1 = t('bulletins.titles.all')
 
-table.table.table-striped.table-hover.mb-5
+.mb-4
+  = render 'layouts/shared/search_form', q: @q, url: admin_bulletins_path
+
+table.table.table-striped.table-borderless
   thead
     tr
       th{ scope = 'col' } = t('active_record.attributes.bulletin.title')

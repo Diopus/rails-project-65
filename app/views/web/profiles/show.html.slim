@@ -1,9 +1,14 @@
 = content_for :title do
   = t('bulletins.titles.my')
 
-= link_to t('bulletins.links.new'), new_bulletin_path, class: 'btn btn-primary my-2'
+= link_to new_bulletin_path, class: 'btn btn-primary my-2' do
+  i.bi.bi-plus-circle.me-1
+  = t('bulletins.links.new')
 
-table.table.table-striped.table-hover.mb-5
+.mb-4
+  = render 'layouts/shared/search_form', q: @q, url: profile_path
+
+table.table.table-striped.table-borderless
   thead
     tr
       th{ scope = 'col' } = t('active_record.attributes.bulletin.title')
