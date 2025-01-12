@@ -5,4 +5,7 @@ set -o errexit
 bundle install
 yarn build
 
+./bin/rails assets:precompile
+./bin/rails assets:clean
+
 ./bin/rails db:prepare
