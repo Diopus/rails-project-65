@@ -5,7 +5,8 @@ module Admin
     before_action :set_bulletin, only: %i[archive publish reject]
 
     def index
-      @bulletins = Bulletin.order('created_at desc')
+      @q = Bulletin.order('created_at desc').ransack(params[:q])
+      @bulletins = @q.result
     end
 
     # AASM
