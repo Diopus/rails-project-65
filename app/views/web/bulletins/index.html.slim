@@ -1,6 +1,9 @@
 = content_for :title do
   = t('bulletins.titles.all')
 
+.mb-4
+  = render 'search_form', q: @q
+
 .row.row-cols-1.row-cols-sm-2.row-cols-md-3.row-cols-lg-4.g-4.mt-2
   - @bulletins.each do |bulletin|
     .col
