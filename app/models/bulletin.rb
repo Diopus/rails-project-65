@@ -35,6 +35,10 @@ class Bulletin < ApplicationRecord
   validates :description, presence: true, length: { maximum: MAX_DESCRIPTION_LENGTH }
   validates :image, attached: true, size: { less_than: 5.megabytes }
 
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[state title category_id]
+  end
+
   def self.title_max_length
     MAX_TITLE_LENGTH
   end
