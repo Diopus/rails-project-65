@@ -7,7 +7,8 @@ module Web
 
     # CRUD
     def index
-      @bulletins = Bulletin.published.order('created_at desc')
+      @q = Bulletin.published.order('created_at desc').ransack(params[:q])
+      @bulletins = @q.result
     end
 
     def show
