@@ -2,6 +2,8 @@
 # exit on error
 set -o errexit
 
+./bin/rails tmp:clear
+
 bundle install
 yarn build
 
