@@ -8,7 +8,7 @@ module Web
     # CRUD
     def index
       @q = Bulletin.published.order('created_at desc').ransack(params[:q])
-      @bulletins = @q.result
+      @bulletins = @q.result.page(params[:page]).per(12)
     end
 
     def show

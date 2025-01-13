@@ -4,7 +4,7 @@
 .mb-4
   = render 'search_form', q: @q
 
-.row.row-cols-1.row-cols-sm-2.row-cols-md-3.row-cols-lg-4.g-4.mt-2
+.row.row-cols-1.row-cols-sm-2.row-cols-md-3.row-cols-lg-4.g-4.mt-2.mb-4
   - @bulletins.each do |bulletin|
     .col
       .card.h-100.shadow-sm
@@ -15,3 +15,5 @@
             = link_to bulletin.title, bulletin, class: 'link-dark text-decoration-none'
           .h6.card-subtitle.text-muted.small.mt-auto
             = time_ago_in_words(bulletin.created_at)
+
+= paginate @bulletins
