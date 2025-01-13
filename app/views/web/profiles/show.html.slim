@@ -37,5 +37,5 @@ table.table.table-striped.table-borderless.mb-4
                       archive_bulletin_path(bulletin),
                       data: { turbo_method: :patch, turbo_confirm: t('bulletins.confirmation.archive') },
                       class: 'link-danger me-4'
-                      
-= paginate @bulletins                      
+
+= paginate @bulletins, right: 2, window: 1

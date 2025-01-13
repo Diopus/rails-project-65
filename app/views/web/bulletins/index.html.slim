@@ -16,4 +16,4 @@
           .h6.card-subtitle.text-muted.small.mt-auto
             = time_ago_in_words(bulletin.created_at)
 
-= paginate @bulletins
+= paginate @bulletins, right: 2, window: 1
