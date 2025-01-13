@@ -1,8 +1,12 @@
 = search_form_for q, url:, html: { novalidate: true } do |f|
-  .row.my-2
-    .col-6
-      = f.input :title_cont_any, label: false, hint: t('search.hints.title'), hint_html: { class: 'ms-2' }, placeholder: t('search.placeholders.title')
-    .col-3
+  .row.g-3.my-2
+    .col-lg-6.col-md-6.col-sm-12
+      = f.input :title_cont_any,
+                label: false,
+                hint: t('search.hints.title'),
+                hint_html: { class: 'ms-2' },
+                placeholder: t('search.placeholders.title')
+    .col-lg-3.col-md-6.col-sm-12
       = f.input :state_eq,
                 as: :select,
                 collection: Bulletin.aasm.states,
@@ -12,6 +16,6 @@
                 placeholder: t('search.placeholders.state'),
                 value_method: :name,
                 label_method: :human_name
-    .col-3
-      = f.submit t('search.links.submit'), class: 'btn btn-primary me-2'
-      = link_to t('search.links.reset'), url_for, class: 'btn btn-outline-primary'
+    .col-lg-3.col-md-12.col-sm-12.d-flex.align-items-start.gap-2
+      = f.submit t('search.links.submit'), class: 'btn btn-primary flex-grow-1'
+      = link_to t('search.links.reset'), url_for, class: 'btn btn-outline-primary flex-grow-1'
