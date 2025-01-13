@@ -32,6 +32,10 @@ function adjustAspectRatio(pond) {
 
 function loadFilePond() {
   const imageInput = document.querySelector('#bulletin_image');
+  if (!imageInput) {
+    return;
+  }
+ 
   const labelIdle = imageInput.dataset.labelIdle || 'Drag image or choose file';
   const fileUrl = imageInput.dataset.fileUrl;
 
