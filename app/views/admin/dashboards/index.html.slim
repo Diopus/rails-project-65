@@ -1,16 +1,17 @@
 h1 = t('bulletins.titles.under_moderation')
 
-table.table.table-striped.table-hover.mb-5
-  thead
-    tr
-      th{ scope = 'col' } = t('active_record.attributes.bulletin.title')
-      th{ scope = 'col' } = t('active_record.attributes.bulletin.created_at')
-      th{ scope = 'col' } = t('tables.headers.actions')
-      th
-
-  tbody
-    - @bulletins.each do |bulletin|
+.div.table-responsive.mb-4
+  table.table.table-striped.table-borderless
+    thead
       tr
-        td = link_to bulletin.title, bulletin_path(bulletin)
-        td = time_ago_in_words(bulletin.created_at)
-        = render 'actions', bulletin: bulletin
+        th{ scope = 'col' } = t('active_record.attributes.bulletin.title')
+        th{ scope = 'col' } = t('active_record.attributes.bulletin.created_at')
+        th{ scope = 'col' } = t('tables.headers.actions')
+        th
+
+    tbody
+      - @bulletins.each do |bulletin|
+        tr
+          td = link_to bulletin.title, bulletin_path(bulletin)
+          td = time_ago_in_words(bulletin.created_at)
+          = render 'actions', bulletin: bulletin

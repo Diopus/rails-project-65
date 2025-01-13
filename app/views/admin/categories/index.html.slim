@@ -1,18 +1,19 @@
 h1 = t('categories.titles.all')
 
-table.table.table-striped.table-hover.mb-5
-  thead
-    tr
-      th{ scope = 'col' } = t('tables.headers.id')
-      th{ scope = 'col' } = t('active_record.attributes.category.name')
-      th{ scope = 'col' } = t('tables.headers.actions')
-      th
-
-  tbody
-    - @categories.each do |category|
+.div.table-responsive.mb-4
+  table.table.table-striped.table-borderless
+    thead
       tr
-        td = category.id
-        td = category.name
-        = render 'actions', category: category
+        th{ scope = 'col' } = t('tables.headers.id')
+        th{ scope = 'col' } = t('active_record.attributes.category.name')
+        th{ scope = 'col' } = t('tables.headers.actions')
+        th
+
+    tbody
+      - @categories.each do |category|
+        tr
+          td = category.id
+          td = category.name
+          = render 'actions', category: category
 
 = link_to t('categories.links.new'), new_admin_category_path, class: 'btn btn-primary my-2'

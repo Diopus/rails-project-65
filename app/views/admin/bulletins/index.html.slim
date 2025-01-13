@@ -3,21 +3,22 @@ h1 = t('bulletins.titles.all')
 .mb-4
   = render 'layouts/shared/search_form', q: @q, url: admin_bulletins_path
 
-table.table.table-striped.table-borderless.mb-4
-  thead
-    tr
-      th{ scope = 'col' } = t('active_record.attributes.bulletin.title')
-      th{ scope = 'col' } = t('active_record.attributes.bulletin.state')
-      th{ scope = 'col' } = t('active_record.attributes.bulletin.created_at')
-      th{ scope = 'col' } = t('tables.headers.actions')
-      th
-
-  tbody
-    - @bulletins.each do |bulletin|
+.div.table-responsive.mb-4
+  table.table.table-striped.table-borderless
+    thead
       tr
-        td = link_to bulletin.title, bulletin_path(bulletin)
-        td = t("aasm.bulletin.states.#{bulletin.state}")
-        td = time_ago_in_words(bulletin.created_at)
-        = render 'actions', bulletin: bulletin
+        th{ scope = 'col' } = t('active_record.attributes.bulletin.title')
+        th{ scope = 'col' } = t('active_record.attributes.bulletin.state')
+        th{ scope = 'col' } = t('active_record.attributes.bulletin.created_at')
+        th{ scope = 'col' } = t('tables.headers.actions')
+        th
+
+    tbody
+      - @bulletins.each do |bulletin|
+        tr
+          td = link_to bulletin.title, bulletin_path(bulletin)
+          td = t("aasm.bulletin.states.#{bulletin.state}")
+          td = time_ago_in_words(bulletin.created_at)
+          = render 'actions', bulletin: bulletin
 
 = paginate @bulletins, right: 2, window: 1
