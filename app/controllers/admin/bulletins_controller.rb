@@ -6,7 +6,7 @@ module Admin
 
     def index
       @q = Bulletin.order('created_at desc').ransack(params[:q])
-      @bulletins = @q.result
+      @bulletins = @q.result.page(params[:page]).per(20)
     end
 
     # AASM

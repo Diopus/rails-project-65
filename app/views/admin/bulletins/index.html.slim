@@ -3,7 +3,7 @@ h1 = t('bulletins.titles.all')
 .mb-4
   = render 'layouts/shared/search_form', q: @q, url: admin_bulletins_path
 
-table.table.table-striped.table-borderless
+table.table.table-striped.table-borderless.mb-4
   thead
     tr
       th{ scope = 'col' } = t('active_record.attributes.bulletin.title')
@@ -25,3 +25,5 @@ table.table.table-striped.table-borderless
                       archive_admin_bulletin_path(bulletin),
                       data: { turbo_method: :patch, turbo_confirm: t('bulletins.confirmation.archive') },
                       class: 'link-danger me-2'
+
+= paginate @bulletins, left: 1, right: 2, window: 1
