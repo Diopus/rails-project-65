@@ -8,7 +8,7 @@
 .mb-4
   = render 'layouts/shared/search_form', q: @q, url: profile_path
 
-table.table.table-striped.table-borderless
+table.table.table-striped.table-borderless.mb-4
   thead
     tr
       th{ scope = 'col' } = t('active_record.attributes.bulletin.title')
@@ -37,3 +37,5 @@ table.table.table-striped.table-borderless
                       archive_bulletin_path(bulletin),
                       data: { turbo_method: :patch, turbo_confirm: t('bulletins.confirmation.archive') },
                       class: 'link-danger me-4'
+                      
+= paginate @bulletins                      

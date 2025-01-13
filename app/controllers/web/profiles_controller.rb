@@ -6,7 +6,7 @@ module Web
 
     def show
       @q = current_user.bulletins.order('created_at desc').ransack(params[:q])
-      @bulletins = @q.result(distinct: true)
+      @bulletins = @q.result.page(params[:page]).per(20)
     end
   end
 end
