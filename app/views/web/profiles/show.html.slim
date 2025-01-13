@@ -1,7 +1,7 @@
 = content_for :title do
   = t('bulletins.titles.my')
 
-= link_to new_bulletin_path, class: 'btn btn-primary my-2' do
+= link_to new_bulletin_path, class: 'btn btn-primary my-2 py-3 w-100' do
   i.bi.bi-plus-circle.me-1
   = t('bulletins.links.new')
 
@@ -10,20 +10,20 @@
 
 .div.table-responsive.mb-4
   table.table.table-striped.table-borderless
-  thead
-    tr
-      th{ scope = 'col' } = t('active_record.attributes.bulletin.title')
-      th{ scope = 'col' } = t('active_record.attributes.bulletin.state')
-      th{ scope = 'col' } = t('active_record.attributes.bulletin.created_at')
-      th{ scope = 'col' } = t('tables.headers.actions')
-      th
-
-  tbody
-    - @bulletins.each do |bulletin|
+    thead
       tr
-        td = link_to bulletin.title, bulletin_path(bulletin)
-        td = t("aasm.bulletin.states.#{bulletin.state}")
-        td = time_ago_in_words(bulletin.created_at)
+        th{ scope = 'col' } = t('active_record.attributes.bulletin.title')
+        th{ scope = 'col' } = t('active_record.attributes.bulletin.state')
+        th{ scope = 'col' } = t('active_record.attributes.bulletin.created_at')
+        th{ scope = 'col' } = t('tables.headers.actions')
+        th
+
+    tbody
+      - @bulletins.each do |bulletin|
+        tr
+          td = link_to bulletin.title, bulletin_path(bulletin)
+          td = t("aasm.bulletin.states.#{bulletin.state}")
+          td = time_ago_in_words(bulletin.created_at)
           = render 'actions', bulletin: bulletin
 
 
