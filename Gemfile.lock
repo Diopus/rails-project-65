@@ -164,9 +164,6 @@ GEM
     hashie (5.0.0)
     highline (3.1.2)
       reline
-    hpricot (0.8.6)
-    html2slim-ruby3 (0.2.1)
-      hpricot
     i18n (1.14.6)
       concurrent-ruby (~> 1.0)
     i18n-tasks (1.0.14)
@@ -494,7 +491,6 @@ DEPENDENCIES
   dotenv-rails
   faker
   file_validators
-  html2slim-ruby3
   i18n-tasks
   image_processing
   jbuilder
