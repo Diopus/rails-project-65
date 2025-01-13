@@ -18,6 +18,8 @@ gem 'i18n-tasks'
 
 gem 'image_processing'
 
+gem 'kaminari'
+
 gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
 
