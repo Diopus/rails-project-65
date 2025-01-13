@@ -1,9 +1,9 @@
-en:
+ru:
   pagination:
-    first: " First"
-    last: "Last "
-    previous: " Prev"
-    next: "Next "
+    first: " Первая"
+    last: "Последняя "
+    next: "Следующая "
+    previous: " Предыдущая"
     truncate: "&hellip;"
   search:
     hints:
