@@ -1,0 +1,7 @@
+td
+  .d-flex.flex-column.flex-md-row.align-items-start.gap-2
+    = link_to t('categories.links.edit'), edit_admin_category_path(category), class: 'me-4 text-nowrap'
+    = link_to t('categories.links.delete'),
+              admin_category_path(category),
+              data: { turbo_method: :delete, turbo_confirm: t('categories.confirmation.delete', name: category.name) },
+              class: 'link-danger me-2 text-nowrap'

@@ -18,12 +18,6 @@ table.table.table-striped.table-borderless.mb-4
         td = link_to bulletin.title, bulletin_path(bulletin)
         td = t("aasm.bulletin.states.#{bulletin.state}")
         td = time_ago_in_words(bulletin.created_at)
-
-        td
-          - if bulletin.may_archive?
-            = link_to t('aasm.bulletin.actions.archive'),
-                      archive_admin_bulletin_path(bulletin),
-                      data: { turbo_method: :patch, turbo_confirm: t('bulletins.confirmation.archive') },
-                      class: 'link-danger me-2'
+        = render 'actions', bulletin: bulletin
 
 = paginate @bulletins, right: 2, window: 1
