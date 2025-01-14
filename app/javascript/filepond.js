@@ -48,20 +48,28 @@ function loadFilePond() {
     stylePanelLayout: 'integrated',
     stylePanelAspectRatio: '0.1',
     labelIdle,
+    server: {
+      load: (source, load) => {
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.onload = () => load(img);
+        img.src = source;
+      },
+    },
   });
 
   if (fileUrl) {
-    fetch(fileUrl, { method: "HEAD" })
+    fetch(fileUrl, { method: 'HEAD' })
       .then((response) => {
         if (response.ok) {
           pond.addFile(fileUrl).catch((error) =>
-            console.error("Error loading file to FilePond:", error)
+            console.error('Error loading file to FilePond:', error)
           );
         } else {
-          console.warn("File URL is no longer valid:", fileUrl);
+          console.warn('The file URL is invalid or expired:', fileUrl);
         }
       })
-      .catch((error) => console.error("Error checking file URL:", error));
+      .catch((error) => console.error('Error checking file URL:', error));
   }
 
   pond.on('addfile', () => adjustAspectRatio(pond));
