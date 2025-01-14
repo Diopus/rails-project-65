@@ -48,14 +48,6 @@ function loadFilePond() {
     stylePanelLayout: 'integrated',
     stylePanelAspectRatio: '0.1',
     labelIdle,
-    server: {
-      load: (source, load) => {
-        const img = new Image();
-        img.crossOrigin = 'anonymous';
-        img.onload = () => load(img);
-        img.src = source;
-      },
-    },
   });
 
   if (fileUrl) {
