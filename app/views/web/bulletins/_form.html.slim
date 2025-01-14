@@ -16,6 +16,9 @@
 
   - image_url = bulletin.image.attached? ? url_for(bulletin.image) : nil
 
+  - if bulletin.image.attached?
+    = image_tag(bulletin.image, size: 100, class: 'img-thumbnail mb-2')
+
   = f.input :image,
     as: :file,
     required: true,
