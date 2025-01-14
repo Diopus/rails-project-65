@@ -26,6 +26,7 @@ module Web
 
     def edit
       authorize @bulletin
+      @image_url = @bulletin.image.attached? ? rails_blob_url(@bulletin.image, disposition: 'inline', response_cache_control: 'no-cache') : nil
     end
 
     def create
