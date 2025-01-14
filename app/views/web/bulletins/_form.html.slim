@@ -14,7 +14,7 @@
     required: true,
     label_html: { class: 'mt-3' }
 
-  - image_url = @image_url
+  - image_url = bulletin.image.attached? ? url_for(bulletin.image) : nil
 
   = f.input :image,
     as: :file,
