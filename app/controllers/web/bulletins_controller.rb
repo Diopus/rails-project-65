@@ -26,6 +26,7 @@ module Web
 
     def edit
       authorize @bulletin
+      @image_url = url_for(@bulletin.image) if @bulletin.image.attached?
     end
 
     def create

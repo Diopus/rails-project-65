@@ -51,7 +51,17 @@ function loadFilePond() {
   });
 
   if (fileUrl) {
-    pond.addFile(fileUrl).catch(error => console.error('Error loading file to FilePond:', error));
+    fetch(fileUrl, { method: "HEAD" })
+      .then((response) => {
+        if (response.ok) {
+          pond.addFile(fileUrl).catch((error) =>
+            console.error("Error loading file to FilePond:", error)
+          );
+        } else {
+          console.warn("File URL is no longer valid:", fileUrl);
+        }
+      })
+      .catch((error) => console.error("Error checking file URL:", error));
   }
 
   pond.on('addfile', () => adjustAspectRatio(pond));

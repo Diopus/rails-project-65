@@ -14,16 +14,11 @@
     required: true,
     label_html: { class: 'mt-3' }
 
-  - image_url = bulletin.image.attached? ? url_for(bulletin.image) : nil
-
-  - if bulletin.image.attached?
-    = image_tag(bulletin.image, size: 100, class: 'img-thumbnail mb-2')
-
   = f.input :image,
     as: :file,
     required: true,
     label_html: { class: 'mt-3' },
     wrapper: :filepond_file,
-    input_html: { data: { label_idle: I18n.t('bulletins.image_field.label_idle'), file_url: image_url } }
+    input_html: { data: { label_idle: I18n.t('bulletins.image_field.label_idle'), file_url: @image_url } }
 
   = f.button :submit, class: 'btn-primary mt-4'
