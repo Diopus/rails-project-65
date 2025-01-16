@@ -1,8 +1,11 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
+user:
   name: Pavel
   email: v_shtani_naplavil@ya.ru
+  admin: false
+
+other_user:
+  name: Barack
+  email: obama_official8192@gmail.com
   admin: false
 
 admin:

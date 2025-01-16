@@ -1,11 +1,55 @@
-one:
-  title: "Brand New Car"
-  description: "This is a great car for everyday use."
-  category: one
-  user: one
-
-two:
-  title: "Modern Coat"
+archived:
+  title: "Old-fashioned Coat"
   description: "Spacious coat in a great color."
   category: two
-  user: one
+  user: user
+  state: archived
+
+draft:
+  title: "Brand new Car"
+  description: "This is a great car for everyday use."
+  category: one
+  user: user
+  state: draft
+
+published:
+  title: "Typical german Bus"
+  description: "Nice if you can drive it."
+  category: one
+  user: user
+  state: published
+
+rejected:
+  title: "Cafe for Divorced"
+  description: "Feel free to be free."
+  category: three
+  user: user
+  state: rejected
+
+under_moderation:
+  title: "Transparent Coat"
+  description: "Underwear required."
+  category: two
+  user: user
+  state: under_moderation
+
+draft_other:
+  title: "Almost new Car"
+  description: "Produced yesterday."
+  category: one
+  user: other_user
+  state: draft
+
+published_other:
+  title: "Private Train"
+  description: "Change wheel-pair and it's done."
+  category: one
+  user: other_user
+  state: published
+
+unique_title:
+  title: "8743b52063cd84097a65d1633f5c74f5"
+  description: "Hard to find. Easy to lose. Impossible to forget."
+  category: three
+  user: user
+  state: published
