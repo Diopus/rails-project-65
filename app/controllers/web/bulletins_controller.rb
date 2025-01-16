@@ -42,6 +42,13 @@ module Web
 
     def update
       authorize @bulletin
+
+      if @bulletin.update(bulletin_params)
+        redirect_to profile_path, notice: I18n.t('bulletins.crud.update.success')
+      else
+        flash.now[:alert] = I18n.t('bulletins.crud.update.failure')
+        render :edit, status: :unprocessable_entity
+      end
     end
 
     # AASM
