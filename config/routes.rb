@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   scope '(:locale)', locale: /en|ru/ do
     namespace :admin do
       root 'dashboards#index'
-      resources :categories
-      resources :bulletins do
+      resources :categories, only: %i[index show new edit create update]
+      resources :bulletins, only: %i[index] do
         member do
           patch :archive
           patch :publish
