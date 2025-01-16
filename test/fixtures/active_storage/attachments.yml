@@ -1,0 +1,39 @@
+archived:
+  name: image
+  record: archived (Bulletin)
+  blob: test_image_blob
+
+draft:
+  name: image
+  record: draft (Bulletin)
+  blob: test_image_blob
+
+published:
+  name: image
+  record: published (Bulletin)
+  blob: test_image_blob
+
+rejected:
+  name: image
+  record: rejected (Bulletin)
+  blob: test_image_blob
+
+under_moderation:
+  name: image
+  record: under_moderation (Bulletin)
+  blob: test_image_blob
+
+draft_other:
+  name: image
+  record: draft_other (Bulletin)
+  blob: test_image_blob
+
+published_other:
+  name: image
+  record: published_other (Bulletin)
+  blob: test_image_blob
+
+unique_title:
+  name: image
+  record: unique_title (Bulletin)
+  blob: test_image_blob
