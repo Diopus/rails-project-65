@@ -23,10 +23,6 @@ class BulletinPolicy < ApplicationPolicy
     edit?
   end
 
-  def destroy?
-    admin?
-  end
-
   # AASM
   def archive?
     author?
