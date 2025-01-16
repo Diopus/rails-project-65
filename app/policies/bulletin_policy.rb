@@ -12,7 +12,7 @@ class BulletinPolicy < ApplicationPolicy
 
   # CRUD
   def show?
-    bulletin.published? || author? || admin?
+    bulletin&.published? || author? || admin?
   end
 
   def edit?
