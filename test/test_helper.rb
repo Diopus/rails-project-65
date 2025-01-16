@@ -13,6 +13,10 @@ module ActiveSupport
 
     # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
     fixtures :all
+
+    setup do
+      Rails.application.routes.default_url_options[:locale] = I18n.default_locale
+    end
   end
 end
 
