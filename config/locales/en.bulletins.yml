@@ -9,6 +9,9 @@ en:
       create:
         success: Bulletin has been successfully created
         failure: Bulletin couldn't be created
+      update:
+        success: Bulletin has been successfully updated
+        failure: Bulletin couldn't be updated
     image_field:
       label_idle: Drag & Drop your picture or Browse
     links:
