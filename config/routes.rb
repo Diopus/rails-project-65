@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   scope '(:locale)', locale: /en|ru/ do
     namespace :admin do
       root 'dashboards#index'
-      resources :categories, only: %i[index show new edit create update]
+      resources :categories, only: %i[index new edit create update destroy]
       resources :bulletins, only: %i[index] do
         member do
           patch :archive
