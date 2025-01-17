@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest
+class Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest # rubocop:disable Metrics/ClassLength
   setup do
     @user = users(:user)
     @admin = users(:admin)
