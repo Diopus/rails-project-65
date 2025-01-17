@@ -53,3 +53,10 @@ unique_title:
   category: three
   user: user
   state: published
+
+unique_category:
+  title: "01dfae6e5d4d90d9892622325959afbe"
+  description: "Pretty hard to find. definitely easy to lose. Nearly impossible to forget."
+  category: unique
+  user: user
+  state: published
