@@ -3,23 +3,45 @@
 require 'application_system_test_case'
 
 class SearchBulletinsTest < ApplicationSystemTestCase
-  test 'search by title' do
-    skip('TODO')
-    visit bulletins_path
-    fill_in 'q_title_cont', with: 'Bus'
-    click_on 'Search'
+  setup do
+    @bulletin_with_unique_title = bulletins(:unique_title)
+    @bulletin_with_unique_category = bulletins(:unique_category)
 
-    assert_text 'Typical german Bus'
-    refute_text 'Old-fashioned Coat'
+    @category = categories(:unique)
+
+    @user = users(:user)
+    @admin = users(:admin)
   end
 
-  test 'filter by state' do
-    skip('TODO')
+  test 'search by title' do
     visit bulletins_path
-    select 'published', from: 'q_state_eq'
-    click_on 'Search'
+    fill_in 'q_title_cont_any', with: @bulletin_with_unique_title.title[..4]
+    click_on I18n.t('search.links.submit')
 
-    assert_text 'Typical german Bus'
-    refute_text 'Brand new Car'
+    assert_text @bulletin_with_unique_title.title
+    refute_text @bulletin_with_unique_category.title
+  end
+
+  test 'search by category' do
+    visit bulletins_path
+    select @bulletin_with_unique_category.category.name, from: 'q_category_id_eq'
+    click_on I18n.t('search.links.submit')
+
+    assert_text @bulletin_with_unique_category.title
+    refute_text @bulletin_with_unique_title.title
+  end
+
+  test 'search by state' do
+    sign_in @admin
+
+    visit admin_bulletins_path
+    select 'Draft', from: 'q_state_eq'
+    click_on I18n.t('search.links.submit')
+
+    assert_selector 'td', text: 'Draft', count: Bulletin.where(state: 'draft').count
+    assert_no_selector 'td', text: 'Published'
+    assert_no_selector 'td', text: 'Rejected'
+    assert_no_selector 'td', text: 'Under moderation'
+    assert_no_selector 'td', text: 'Archived'
   end
 end
