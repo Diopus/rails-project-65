@@ -7,14 +7,6 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     @bulletin_draft = bulletins(:draft)
     @bulletin_published = bulletins(:published)
 
-    @bulletin_archived = bulletins(:archived)
-    @bulletin_rejected = bulletins(:rejected)
-    @bulletin_under_moderation = bulletins(:under_moderation)
-
-    @bulletin_default_other = bulletins(:draft_other)
-
-    @bulletin_published_other = bulletins(:published_other)
-
     @user = users(:user)
     @other_user = users(:other_user)
     @admin = users(:admin)
@@ -22,6 +14,17 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     @category = categories(:one)
 
     @image = fixture_file_upload('test.jpg', 'image/jpg')
+
+    title_length = rand(Bulletin.title_max_length)
+    @new_title = Faker::Lorem.paragraph_by_chars(number: title_length)
+    new_description = Faker::Lorem.paragraph_by_chars
+    new_bulletin = {
+      title: @new_title,
+      description: new_description,
+      category_id: @category.id,
+      image: @image
+    }
+    @new_bulletin_params = { bulletin: new_bulletin }
   end
 
   test 'should get index' do
@@ -49,19 +52,9 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
   test 'should create bulletin' do
     sign_in @user
 
-    title_length = rand(Bulletin.title_max_length)
-    new_bulletin = {
-      title: Faker::Lorem.paragraph_by_chars(number: title_length),
-      description: Faker::Lorem.paragraph_by_chars,
-      category_id: @category.id,
-      image: @image
-    }
-    bulletin_params = { bulletin: new_bulletin }
+    post bulletins_path, params: @new_bulletin_params
 
-    post bulletins_path, params: bulletin_params
-
-    bulletin = Bulletin.find_by(title: new_bulletin[:title])
-
+    bulletin = Bulletin.find_by(title: @new_title)
     assert_redirected_to bulletin_path(bulletin)
   end
 
@@ -80,26 +73,20 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
   test 'should update bulletin when author logged in' do
     sign_in @user
 
-    title_length = rand(Bulletin.title_max_length)
-    new_title = Faker::Lorem.paragraph_by_chars(number: title_length)
-
-    patch bulletin_url(@bulletin_draft), params: { bulletin: { title: new_title } }
+    patch bulletin_url(@bulletin_draft), params: { bulletin: { title: @new_title } }
 
     @bulletin_draft.reload
 
-    assert_equal @bulletin_draft.title, new_title
+    assert_equal @bulletin_draft.title, @new_title
     assert_redirected_to profile_path
   end
 
   test 'should not update bulletin when author not logged in' do
-    title_length = rand(Bulletin.title_max_length)
-    new_title = Faker::Lorem.paragraph_by_chars(number: title_length)
-
-    patch bulletin_url(@bulletin_draft), params: { bulletin: { title: new_title } }
+    patch bulletin_url(@bulletin_draft), params: { bulletin: { title: @new_title } }
 
     @bulletin_draft.reload
 
-    assert_not_equal @bulletin_draft.title, new_title
+    assert_not_equal @bulletin_draft.title, @new_title
     assert_redirected_to root_path
   end
 end
