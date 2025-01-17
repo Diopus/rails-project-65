@@ -7,7 +7,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
 
   include AuthenticationHelpers
 
-  def test_file(filename)
+  def fixture_file_path(filename)
     Rails.root.join('test/fixtures/files', filename)
   end
 end

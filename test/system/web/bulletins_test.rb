@@ -47,7 +47,7 @@ class BulletinsTest < ApplicationSystemTestCase
     select @category.name, from: 'bulletin_category_id'
 
     file_input = find('input[type="file"]', visible: false)
-    file_input.attach_file(test_file(@image_name))
+    file_input.attach_file(fixture_file_path(@image_name))
 
     find('input[type="submit"]').click
 
