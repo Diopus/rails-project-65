@@ -14,9 +14,9 @@ module Admin
       if @bulletin.may_archive?
         @bulletin.archive!
 
-        flash.now[:notice] = I18n.t('aasm.bulletin.transitions.archive.success')
+        flash[:notice] = I18n.t('aasm.bulletin.transitions.archive.success')
       else
-        flash.now[:alert] = I18n.t('aasm.bulletin.transitions.archive.failure')
+        flash[:alert] = I18n.t('aasm.bulletin.transitions.archive.failure')
       end
 
       redirect_back fallback_location: admin_root_path
@@ -26,9 +26,9 @@ module Admin
       if @bulletin.may_publish?
         @bulletin.publish!
 
-        flash.now[:notice] = I18n.t('aasm.bulletin.transitions.publish.success')
+        flash[:notice] = I18n.t('aasm.bulletin.transitions.publish.success')
       else
-        flash.now[:alert] = I18n.t('aasm.bulletin.transitions.publish.failure')
+        flash[:alert] = I18n.t('aasm.bulletin.transitions.publish.failure')
       end
 
       redirect_back fallback_location: admin_root_path
@@ -38,9 +38,9 @@ module Admin
       if @bulletin.may_reject?
         @bulletin.reject!
 
-        flash.now[:notice] = I18n.t('aasm.bulletin.transitions.reject.success')
+        flash[:notice] = I18n.t('aasm.bulletin.transitions.reject.success')
       else
-        flash.now[:alert] = I18n.t('aasm.bulletin.transitions.reject.failure')
+        flash[:alert] = I18n.t('aasm.bulletin.transitions.reject.failure')
       end
 
       redirect_back fallback_location: admin_root_path

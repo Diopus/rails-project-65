@@ -20,7 +20,7 @@ module Admin
       if @category.save
         redirect_to admin_categories_path, notice: I18n.t('categories.crud.create.success')
       else
-        flash.now[:alert] = I18n.t('categories.crud.create.failure')
+        flash[:alert] = I18n.t('categories.crud.create.failure')
         render :new, status: :unprocessable_entity
       end
     end
@@ -30,17 +30,17 @@ module Admin
       if @category.update(category_params)
         redirect_to admin_categories_path, notice: I18n.t('categories.crud.update.success')
       else
-        flash.now[:alert] = I18n.t('categories.crud.update.failure')
+        flash[:alert] = I18n.t('categories.crud.update.failure')
         render :edit, status: :unprocessable_entity
       end
     end
 
     def destroy
       if @category.bulletins.present?
-        flash.now[:warning] = I18n.t('categories.crud.destroy.has_bulletins')
+        flash[:warning] = I18n.t('categories.crud.destroy.has_bulletins')
       else
         @category.destroy
-        flash.now[:notice] = I18n.t('categories.crud.destroy.success')
+        flash[:notice] = I18n.t('categories.crud.destroy.success')
       end
 
       redirect_back(fallback_location: admin_categories_path)

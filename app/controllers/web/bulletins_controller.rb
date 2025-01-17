@@ -35,7 +35,7 @@ module Web
       if @bulletin.save
         redirect_to bulletin_path(@bulletin), notice: I18n.t('bulletins.crud.create.success')
       else
-        flash.now[:alert] = I18n.t('bulletins.crud.create.failure')
+        flash[:alert] = I18n.t('bulletins.crud.create.failure')
         render :new, status: :unprocessable_entity
       end
     end
@@ -46,7 +46,7 @@ module Web
       if @bulletin.update(bulletin_params)
         redirect_to profile_path, notice: I18n.t('bulletins.crud.update.success')
       else
-        flash.now[:alert] = I18n.t('bulletins.crud.update.failure')
+        flash[:alert] = I18n.t('bulletins.crud.update.failure')
         render :edit, status: :unprocessable_entity
       end
     end
@@ -58,9 +58,9 @@ module Web
       if @bulletin.may_archive?
         @bulletin.archive!
 
-        flash.now[:notice] = I18n.t('aasm.bulletin.transitions.archive.success')
+        flash[:notice] = I18n.t('aasm.bulletin.transitions.archive.success')
       else
-        flash.now[:alert] = I18n.t('aasm.bulletin.transitions.archive.failure')
+        flash[:alert] = I18n.t('aasm.bulletin.transitions.archive.failure')
       end
 
       redirect_back fallback_location: profile_path
@@ -72,9 +72,9 @@ module Web
       if @bulletin.may_to_moderate?
         @bulletin.to_moderate!
 
-        flash.now[:notice] = I18n.t('aasm.bulletin.transitions.to_moderate.success')
+        flash[:notice] = I18n.t('aasm.bulletin.transitions.to_moderate.success')
       else
-        flash.now[:alert] = I18n.t('aasm.bulletin.transitions.to_moderate.failure')
+        flash[:alert] = I18n.t('aasm.bulletin.transitions.to_moderate.failure')
       end
 
       redirect_back fallback_location: profile_path
