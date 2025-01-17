@@ -4,13 +4,14 @@ en:
       delete: Do you really want to delete category "%{name}"?
     crud:
       create:
-        success: Category has been successfully created
         failure: Category couldn't be created
+        success: Category has been successfully created
       destroy:
+        has_bulletins: There're bulletins in this category!
         success: Category has been successfully deleted
       update:
-        success: Category has been successfully updated
         failure: Category couldn't be updated
+        success: Category has been successfully updated
     links:
       delete: Delete
       edit: Edit
