@@ -36,9 +36,14 @@ module Admin
     end
 
     def destroy
-      @category&.destroy!
+      if @category.bulletins.present?
+        flash.now[:warning] = I18n.t('categories.crud.destroy.has_bulletins')
+      else
+        @category.destroy
+        flash.now[:notice] = I18n.t('categories.crud.destroy.success')
+      end
 
-      redirect_to admin_categories_path, notice: I18n.t('categories.crud.destroy.success')
+      redirect_back(fallback_location: admin_categories_path)
     end
 
     private
