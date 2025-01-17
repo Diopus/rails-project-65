@@ -37,3 +37,8 @@ unique_title:
   name: image
   record: unique_title (Bulletin)
   blob: test_image_blob
+
+unique_category:
+  name: image
+  record: unique_category (Bulletin)
+  blob: test_image_blob
