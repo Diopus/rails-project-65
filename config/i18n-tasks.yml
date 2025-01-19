@@ -3,7 +3,7 @@
 # The "main" locale.
 base_locale: en
 ## All available locales are inferred from the data by default. Alternatively, specify them explicitly:
-# locales: [es, fr]
+locales: ru
 ## Reporting locale, default: en. Available: en, ru.
 # internal_locale: en
 
@@ -105,7 +105,7 @@ search:
   ## See this example of a custom scanner: https://github.com/glebm/i18n-tasks/wiki/A-custom-scanner-example
 
 ## Translation Services
-# translation:
+translation:
 #   # Google Translate
 #   # Get an API key and set billing info at https://code.google.com/apis/console to use Google Translate
 #   google_translate_api_key: "AbC-dEf5"
@@ -120,21 +120,22 @@ search:
 #   # add additional options to the DeepL.translate call: https://www.deepl.com/docs-api/translate-text/translate-text/
 #   deepl_options:
 #     formality: prefer_less
-#   # OpenAI
-#   openai_api_key: "sk-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-#   # openai_model: "gpt-3.5-turbo" # see https://platform.openai.com/docs/models
-#   # may contain `%{from}` and `%{to}`, which will be replaced by source and target locale codes, respectively (using `Kernel.format`)
-#   # openai_system_prompt: >-
-#   #   You are a professional translator that translates content from the %{from} locale
-#   #   to the %{to} locale in an i18n locale array.
-#   #
-#   #   The array has a structured format and contains multiple strings. Your task is to translate
-#   #   each of these strings and create a new array with the translated strings.
-#   #
-#   #   HTML markups (enclosed in < and > characters) must not be changed under any circumstance.
-#   #   Variables (starting with %%{ and ending with }) must not be changed under any circumstance.
-#   #
-#   #   Keep in mind the context of all the strings for a more accurate translation.
+
+  # OpenAI
+  openai_api_key: <%= ENV["OPENAI_API_KEY"] %>
+  openai_model: "gpt-3.5-turbo" # see https://platform.openai.com/docs/models
+  #   # may contain `%{from}` and `%{to}`, which will be replaced by source and target locale codes, respectively (using `Kernel.format`)
+  openai_system_prompt: >-
+    You are a professional translator that translates content from the %{from} locale
+    to the %{to} locale in an i18n locale array.
+
+    The array has a structured format and contains multiple strings. Your task is to translate
+    each of these strings and create a new array with the translated strings.
+
+    HTML markups (enclosed in < and > characters) must not be changed under any circumstance.
+    Variables (starting with %%{ and ending with }) must not be changed under any circumstance.
+
+    Keep in mind the context of all the strings for a more accurate translation.
 
 ## Do not consider these keys missing:
 # ignore_missing:
