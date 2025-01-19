@@ -1,29 +1,28 @@
+---
 en:
   aasm:
     bulletin:
       actions:
-        to_moderate: To moderation
+        archive: Archive
         publish: Publish
         reject: Reject
-        archive: Archive
-
+        to_moderate: To moderation
       states:
         archived: Archived
         draft: Draft
         published: Published
         rejected: Rejected
         under_moderation: Under moderation
-
       transitions:
-        to_moderate:
-          success: "The bulletin has been successfully sent for moderation."
-          failure: "Failed to send the bulletin for moderation."
-        publish:
-          success: "The bulletin has been successfully published."
-          failure: "Failed to publish the bulletin."
-        reject:
-          success: "The bulletin has been successfully rejected."
-          failure: "Failed to reject the bulletin."
         archive:
-          success: "The bulletin has been successfully archived."
-          failure: "Failed to archive the bulletin."
+          failure: Failed to archive the bulletin.
+          success: The bulletin has been successfully archived.
+        publish:
+          failure: Failed to publish the bulletin.
+          success: The bulletin has been successfully published.
+        reject:
+          failure: Failed to reject the bulletin.
+          success: The bulletin has been successfully rejected.
+        to_moderate:
+          failure: Failed to send the bulletin for moderation.
+          success: The bulletin has been successfully sent for moderation.

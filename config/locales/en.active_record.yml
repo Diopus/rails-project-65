@@ -1,3 +1,4 @@
+---
 en:
   active_record:
     attributes:
@@ -9,7 +10,6 @@ en:
         title: Title
       category:
         name: Name
-        
     errors:
       models:
         post:
@@ -22,11 +22,10 @@ en:
               blank: couldn't be blank
             password:
               blank: couldn't be blank
-
     models:
       user:
-        zero: No users
-        one: User
         few: Users
         many: Users
+        one: User
         other: Users
+        zero: No users

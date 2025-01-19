@@ -1,9 +1,10 @@
+---
 en:
   pagination:
     first: " First"
-    last: "Last "
+    last: 'Last '
+    next: 'Next '
     previous: " Prev"
-    next: "Next "
     truncate: "&hellip;"
   search:
     hints:
@@ -11,8 +12,8 @@ en:
       state: Search by state
       title: Search by title
     links:
-      submit: Search
       reset: Reset
+      submit: Search
     placeholders:
       category: Select category...
       state: Select state...

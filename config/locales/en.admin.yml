@@ -1,7 +1,8 @@
+---
 en:
   admin:
     layouts:
       application:
-        under_moderation: Bulletins under moderation
         all_bulletins: All bulletins
         all_categories: All categories
+        under_moderation: Bulletins under moderation

@@ -1,3 +1,4 @@
+---
 en:
   bulletins:
     confirmation:
@@ -7,11 +8,11 @@ en:
       reject: Do you really want to reject this bulletin?
     crud:
       create:
-        success: Bulletin has been successfully created
         failure: Bulletin couldn't be created
+        success: Bulletin has been successfully created
       update:
-        success: Bulletin has been successfully updated
         failure: Bulletin couldn't be updated
+        success: Bulletin has been successfully updated
     image_field:
       label_idle: Drag & Drop your picture or Browse
     links:
