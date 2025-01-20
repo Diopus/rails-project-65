@@ -1,0 +1,32 @@
+---
+ru:
+  errors:
+    messages:
+      aspect_ratio_is_not: должно иметь соотношение сторон %{aspect_ratio}
+      aspect_ratio_not_landscape: должно быть горизонтальным изображением
+      aspect_ratio_not_portrait: должно быть вертикальным изображением
+      aspect_ratio_not_square: должно быть квадратным изображением
+      content_type_invalid: имеет недопустимый тип содержимого
+      dimension_height_equal_to: высота должна быть равна %{length} пикселям
+      dimension_height_greater_than_or_equal_to: высота должна быть больше или равна %{length} пикселям
+      dimension_height_inclusion: высота не включена в диапазон от %{min} до %{max} пикселей
+      dimension_height_less_than_or_equal_to: высота должна быть меньше или равна %{length} пикселям
+      dimension_max_inclusion: должно быть меньше или равно %{width} x %{height} пикселям
+      dimension_min_inclusion: должно быть больше или равно %{width} x %{height} пикселям
+      dimension_width_equal_to: ширина должна быть равна %{length} пикселям
+      dimension_width_greater_than_or_equal_to: ширина должна быть больше или равна %{length} пикселям
+      dimension_width_inclusion: ширина не входит в диапазон от %{min} до %{max} пикселей
+      dimension_width_less_than_or_equal_to: ширина должна быть меньше или равна %{length} пикселям
+      file_size_not_between: размер файла должен быть между %{min_size} и %{max_size} (текущий размер - %{file_size})
+      file_size_not_greater_than: размер файла должен быть больше %{min_size} (текущий размер - %{file_size})
+      file_size_not_greater_than_or_equal_to: размер файла должен быть больше или равен %{min_size} (текущий размер - %{file_size})
+      file_size_not_less_than: размер файла должен быть меньше %{max_size} (текущий размер - %{file_size})
+      file_size_not_less_than_or_equal_to: размер файла должен быть меньше или равен %{max_size} (текущий размер - %{file_size})
+      image_metadata_missing: не является допустимым изображением
+      image_not_processable: не является допустимым изображением
+      limit_out_of_range: общее количество вне диапазона
+      total_file_size_not_between: общий размер файла должен быть между %{min_size} и %{max_size} (текущий размер - %{total_file_size})
+      total_file_size_not_greater_than: общий размер файла должен быть больше %{min_size} (текущий размер - %{total_file_size})
+      total_file_size_not_greater_than_or_equal_to: общий размер файла должен быть больше или равен %{min_size} (текущий размер - %{total_file_size})
+      total_file_size_not_less_than: общий размер файла должен быть меньше %{max_size} (текущий размер - %{total_file_size})
+      total_file_size_not_less_than_or_equal_to: общий размер файла должен быть меньше или равен %{max_size} (текущий размер - %{total_file_size})

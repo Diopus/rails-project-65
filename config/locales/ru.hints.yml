@@ -1,14 +1,13 @@
+---
 ru:
   hints:
     length:
       max_length:
         one: До 1 символа
-        other: 'До %{count} символов'
-
+        other: До %{count} символов
       min_length:
         one: От 1 символа
-        other: 'От %{count} символов'
-
+        other: От %{count} символов
       min_max_length:
-        one: 'От %{min_length} до 1 символа'
-        other: 'От %{min_length} до %{max_length} символов'
+        one: От %{min_length} до 1 символа
+        other: От %{min_length} до %{max_length} символов

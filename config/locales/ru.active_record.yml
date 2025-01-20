@@ -1,3 +1,4 @@
+---
 ru:
   active_record:
     attributes:
@@ -9,7 +10,6 @@ ru:
         title: Заголовок
       category:
         name: Название
-
     errors:
       models:
         post:
@@ -22,11 +22,10 @@ ru:
               blank: не может быть пустым
             password:
               blank: не может быть пустым
-
     models:
       user:
-        zero: Нет пользователей
-        one: Пользователь
         few: Пользователя
         many: Пользователей
+        one: Пользователь
         other: Пользователей
+        zero: Нет пользователей

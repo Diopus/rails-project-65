@@ -1,8 +1,9 @@
+---
 ru:
   pagination:
     first: " Первая"
-    last: "Последняя "
-    next: "Следующая "
+    last: 'Последняя '
+    next: 'Следующая '
     previous: " Предыдущая"
     truncate: "&hellip;"
   search:
@@ -11,8 +12,8 @@ ru:
       state: Search by state
       title: Search by title
     links:
-      submit: Search
       reset: Reset
+      submit: Search
     placeholders:
       category: Select category...
       state: Select state...
