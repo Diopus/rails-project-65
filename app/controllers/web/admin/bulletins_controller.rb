@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Admin
+module Web::Admin
   class BulletinsController < ApplicationController
     before_action :set_bulletin, only: %i[archive publish reject]
 

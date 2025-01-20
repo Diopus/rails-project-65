@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Admin
+module Web::Admin
   class DashboardsController < ApplicationController
     def index
       @bulletins = Bulletin.under_moderation
