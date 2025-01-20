@@ -4,7 +4,7 @@ ru:
     application:
       title: Доска объявлений
     nav:
-      administration: Администрация
+      administration: Администрирование
       log_out: Выйти
       my_bulletins: Мои объявления
       new_bulletin: Новое объявление

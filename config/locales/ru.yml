@@ -8,17 +8,17 @@ ru:
     truncate: "&hellip;"
   search:
     hints:
-      category: Search by category
-      state: Search by state
-      title: Search by title
+      category: Поиск по категории
+      state: Поиск по состоянию
+      title: Поиск по заголовку
     links:
-      reset: Reset
-      submit: Search
+      reset: Сброс
+      submit: Поиск
     placeholders:
-      category: Select category...
-      state: Select state...
-      title: Title contains...
+      category: Выберите категорию...
+      state: Выберите состояние...
+      title: Заголовок содержит...
   tables:
     headers:
-      actions: Actions
+      actions: Действия
       id: ID

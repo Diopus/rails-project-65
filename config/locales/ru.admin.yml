@@ -3,6 +3,6 @@ ru:
   admin:
     layouts:
       application:
-        all_bulletins: Все бюллетени
+        all_bulletins: Все объявления
         all_categories: Все категории
-        under_moderation: Бюллетени на модерации
+        under_moderation: Объявления на модерации
