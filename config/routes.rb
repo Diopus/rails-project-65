@@ -10,18 +10,6 @@ Rails.application.routes.draw do
   get 'manifest' => 'rails/pwa#manifest', as: :pwa_manifest
 
   scope '(:locale)', locale: /en|ru/ do
-    namespace :admin do
-      root 'dashboards#index'
-      resources :categories, only: %i[index new edit create update destroy]
-      resources :bulletins, only: %i[index] do
-        member do
-          patch :archive
-          patch :publish
-          patch :reject
-        end
-      end
-    end
-
     scope module: :web do
       root 'bulletins#index'
 
@@ -33,6 +21,19 @@ Rails.application.routes.draw do
       end
 
       resource :profile, only: :show
+
+      namespace :admin do
+        root 'dashboards#index'
+
+        resources :categories, only: %i[index new edit create update destroy]
+        resources :bulletins, only: :index do
+          member do
+            patch :archive
+            patch :publish
+            patch :reject
+          end
+        end
+      end
     end
   end
 
