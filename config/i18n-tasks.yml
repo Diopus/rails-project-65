@@ -105,7 +105,7 @@ search:
   ## See this example of a custom scanner: https://github.com/glebm/i18n-tasks/wiki/A-custom-scanner-example
 
 ## Translation Services
-translation:
+#   translation:
 #   # Google Translate
 #   # Get an API key and set billing info at https://code.google.com/apis/console to use Google Translate
 #   google_translate_api_key: "AbC-dEf5"
@@ -122,8 +122,10 @@ translation:
 #     formality: prefer_less
 
   # OpenAI
-  openai_api_key: <%= ENV["OPENAI_API_KEY"] %>
-  openai_model: "gpt-3.5-turbo" # see https://platform.openai.com/docs/models
+translation:  
+  backend: 'openai'
+  openai_api_key: <%= ENV['OPENAI_API_KEY'] %>
+  openai_model: 'gpt-3.5-turbo' # see https://platform.openai.com/docs/models
   #   # may contain `%{from}` and `%{to}`, which will be replaced by source and target locale codes, respectively (using `Kernel.format`)
   openai_system_prompt: >-
     You are a professional translator that translates content from the %{from} locale
