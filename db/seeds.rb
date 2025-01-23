@@ -33,6 +33,7 @@ ActiveRecord::Base.transaction do
         state: Bulletin.aasm.states.map(&:name).sample,
         title: Faker::Lorem.paragraph_by_chars(number: rand(1..Bulletin.title_max_length))
       )
+      sleep 1
     end
   end
 end
