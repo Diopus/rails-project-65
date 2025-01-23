@@ -10,3 +10,4 @@ yarn build
 ./bin/rails assets:clean
 
 ./bin/rails db:prepare
+./bin/rails db:seed
