@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 # Categories
-%w[Клавиши Двери Лужи].each do |category_name|
+DEFAULT_CATEGORIES = %w[Клавиши Двери Лужи].freeze
+
+DEFAULT_CATEGORIES.each do |category_name|
   Category.find_or_create_by!(name: category_name)
 end
 
@@ -23,7 +25,7 @@ users = User.all
 ActiveRecord::Base.transaction do
   users.each do |user|
     rand(0..4).times do
-      category = Category.all.sample
+      category = Category.find_by(name: DEFAULT_CATEGORIES.sample)
       image = images_paths[category.name]
 
       user.bulletins.create!(
@@ -33,7 +35,6 @@ ActiveRecord::Base.transaction do
         state: Bulletin.aasm.states.map(&:name).sample,
         title: Faker::Lorem.paragraph_by_chars(number: rand(1..Bulletin.title_max_length))
       )
-      sleep 1
     end
   end
 end
